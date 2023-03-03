@@ -5,6 +5,7 @@
       <li><router-link to="/" class="lista">Home</router-link></li>
       <li><router-link to="/about" class="lista">About</router-link></li>
       <li><router-link to="/products" class="lista">Products</router-link></li>
+      <li><router-link to="/create-product" class="lista">create Product</router-link></li>
     </ul>
   </nav>
   <RouterView ></RouterView>

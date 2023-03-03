@@ -18,7 +18,10 @@
 
                 <p>{{ product.image }}</p>
 
+                <!-- <router-link :to="{ name: 'edit-product', params: { id: '755' } }">Edit</router-link> -->
+                <!-- <router-link :to="{name: 'edit-product', params: { id: product._id }}">Edit </router-link> -->
 
+              <button @click="handleDelete(`${product._id}`)">Delete</button>
             </div>
         </div>
       </section>
@@ -31,10 +34,21 @@ import { mapState } from 'vuex';
 
 export default {
     computed : {
-        ...mapState(['products'])
+      ...mapState(['products'])
     },
     mounted() {
-        this.$store.dispatch('productsList');
+      this.$store.dispatch('getProducts');
+    },
+    methods: {
+      async handleDelete(productId){
+        if (window.confirm("Do you really want to delete?")) {
+          try {
+            this.$store.dispatch('deleteProduct', productId);
+          }catch(err) {
+            console.log("erro", err.message);
+          }
+        }
+      }
     }
 }
 
