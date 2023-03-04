@@ -6,8 +6,8 @@
       <li><router-link to="/about" class="lista">About</router-link></li>
       <li><router-link to="/products" class="lista">Products</router-link></li>
       <li><router-link to="/create-product" class="lista">create Product</router-link></li>
-      <li><router-link to="/register" class="lista">Register</router-link></li>
-      <li><router-link to="/login" class="lista">Login</router-link></li>
+      <!-- <li><router-link to="/register" class="lista">Register</router-link></li> -->
+      <!-- <li><router-link to="/login" class="lista">Login</router-link></li> -->
     </ul>
 
     <div v-if="user">

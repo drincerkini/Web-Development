@@ -46,28 +46,5 @@
       }
     }
 
-    // name: "LoginComponent",
-    //   setup() {
-    //   const email = ref('')
-    //   const password = ref('')
-    //   const error = ref(null)
-  
-    //   const store = useStore()
-    //   const router = useRouter()
-  
-    //   const Login = async () => {
-    //     try {
-    //       await store.dispatch('logIn', {
-    //         email: email.value,
-    //         password: password.value
-    //       })
-    //       router.push('/')
-    //     }
-    //     catch (err) {
-    //       error.value = err.message
-    //     }
-    //   }
-    //   return { Login, email, password, error }
-    // }
   };
   </script>

@@ -39,20 +39,6 @@ export default {
     }
   }
 }
-  //   const Register = async () => {
-  //     try {
-  //       await store.dispatch('register', {
-  //         email: email.value,
-  //         password: password.value,
-  //       })
-  //       router.push('/')
-  //     }
-  //     catch (err) {
-  //       error.value = err.message
-  //           }
-  //   }
 
-  //   return { Register, name,email, password, error }
-  // }
 
 </script>
