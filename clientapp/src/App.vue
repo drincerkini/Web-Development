@@ -6,15 +6,42 @@
       <li><router-link to="/about" class="lista">About</router-link></li>
       <li><router-link to="/products" class="lista">Products</router-link></li>
       <li><router-link to="/create-product" class="lista">create Product</router-link></li>
+      <li><router-link to="/register" class="lista">Register</router-link></li>
+      <li><router-link to="/login" class="lista">Login</router-link></li>
     </ul>
+
+    <div v-if="user">
+        <div class="username">
+            Howdy {{ username  }}
+        </div>
+        <a href="#" @click.prevent="handleLogOut" type="button">Logout</a>
+    </div>
+    <div v-else >
+        <router-link :to="{ name: 'login'}">Login</router-link>
+        <router-link to="/register">Register</router-link>
+    </div>
+
   </nav>
   <RouterView ></RouterView>
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'App',
+
+  methods: {
+    async handleLogOut(){
+      await this.$store.dispatch('logOut');
+      this.$router.push('/login');
+    }
+  },
+
+  computed: {
+    ...mapState(['user']),
+    ...mapGetters(['username'])
+  }
 }
 </script>
 
@@ -28,7 +55,7 @@ export default {
   margin-top: 60px;
 }
 nav{
-  background-color: #2c3e50;
+  background-color: #456b90;
   margin-bottom: 200px;
 }
 
@@ -45,6 +72,10 @@ li{
 }
 
 .lista{
+  color: white;
+}
+
+.username{
   color: white;
 }
 
