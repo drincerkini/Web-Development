@@ -19,7 +19,7 @@ mongoose
     console.log(`connected to mongodb on port ${MONGO_PORT}`);
 
     const app = express();
-    app.use(express.static('uploads'));
+    app.use(express.static('./uploads'));
 
     app.use(bodyParser.json());
 
