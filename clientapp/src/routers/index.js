@@ -7,6 +7,8 @@ import EditProduct from '../pages/product/EditPage.vue';
 import Register from '../pages/RegisterPage.vue';
 import Login from '../pages/LoginPage.vue';
 import ImagePage from '../pages/imagePage.vue';
+import ItemsPage from '../pages/ItemPage.vue'
+import ItemList from '../pages/ItemLists.vue';
 
 const routes = [
     {
@@ -48,6 +50,16 @@ const routes = [
         path:'/image',
         name: 'image',
         component: ImagePage
+    },
+    {
+        path:'/items',
+        name: 'items',
+        component: ItemsPage
+    },
+    {
+        path:'/list-item',
+        name: 'list-item',
+        component: ItemList
     }
 ]
 
