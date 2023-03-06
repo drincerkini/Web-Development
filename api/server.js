@@ -6,6 +6,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import productsRouter from './routes/productsRouter';
+import multer from 'multer';
 
 
 
@@ -17,9 +18,35 @@ mongoose.connect(`${MONGO_CONECTION_URI}:${MONGO_PORT}/${MONGO_DB_NAME}`).then((
         
         app.use(bodyParser.json());
 
+        const storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+              cb(null, 'uploads/');
+            },
+            filename: function (req, file, cb) {
+                const ext = file.mimetype.split('/')[1];
+                cb(null, file.fieldname + '-' + Date.now() + '.' + ext);
+            },
+        });
+
+        const upload = multer({ storage });
+
         app.use(cors({
             origin: '*'
         }))
+
+        app.get('/upload', (req, res) => {
+            res.json({succes : true})
+        });
+        
+        app.post('/upload', upload.single('image'), async (req, res) => {
+            try {
+                console.log(req.file);
+                res.status(200).json({ message: 'Image uploaded successfully' });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Server error' });
+            }
+        });
 
         app.use('/products', productsRouter);
 

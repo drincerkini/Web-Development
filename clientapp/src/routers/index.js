@@ -6,6 +6,7 @@ import CreateProduct from '../pages/product/CreatePage.vue';
 import EditProduct from '../pages/product/EditPage.vue';
 import Register from '../pages/RegisterPage.vue';
 import Login from '../pages/LoginPage.vue';
+import ImagePage from '../pages/imagePage.vue';
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path:'/login',
         name: 'login',
         component: Login
+    },
+    {
+        path:'/image',
+        name: 'image',
+        component: ImagePage
     }
 ]
 
