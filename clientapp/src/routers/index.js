@@ -9,6 +9,7 @@ import Login from '../pages/LoginPage.vue';
 import ImagePage from '../pages/imagePage.vue';
 import ItemsPage from '../pages/ItemPage.vue'
 import ItemList from '../pages/ItemLists.vue';
+import WomanPage from '../pages/woman/WomanPage.vue';
 
 const routes = [
     {
@@ -60,6 +61,11 @@ const routes = [
         path:'/list-item',
         name: 'list-item',
         component: ItemList
+    },
+    {
+        path:'/womanproduct',
+        name: 'womanproduct',
+        component: WomanPage
     }
 ]
 

@@ -2,12 +2,14 @@ import { createStore } from 'vuex';
 import axios from 'axios';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
-const API_URL = 'http://localhost:3000/products';
+const API_URL_PROD = 'http://localhost:3000/products';
+const API_URL_WOMANPROD= 'http://localhost:3000/womanproduct';
 
 const store = createStore({
     state: {
         user: null,
-        products: []
+        products: [],
+        womanproducts: []
     },
     getters: {
         username(state){
@@ -42,6 +44,29 @@ const store = createStore({
         // DELETE operation
         deleteProduct(state, productId){
             state.products = state.products.filter(prod => prod._id !== productId);
+        },
+
+        // Read Operation from woman prpoduct
+        getWomanProd(state, product){
+            state.womanproducts = product;
+        },
+
+        //Create Operation for WomanProduct
+        addWomanProd(state, product){
+            state.womanproducts.push(product);
+        },
+
+        //Update Operation for woman product
+        updateWomanProd(state, product){
+            const index = state.womanproducts.findIndex(i => i._id === product._id);
+            if(index !== -1){
+                state.womanproducts.splice(index, 1, product);
+            }
+        },
+
+        //DELETE Operation fro woman Product
+        deleteWomanProd(state, productId){
+            state.womanproducts = state.womanproducts.filter(prod => prod._id !== productId);
         }
 
     },
@@ -81,28 +106,54 @@ const store = createStore({
         },
 
         async getProducts( { commit } ){
-            const response = await axios.get(API_URL);
+            const response = await axios.get(API_URL_PROD);
 
             commit('getProducts', response.data);
         },
 
         async addProduct( { commit }, product){
-            const response = await axios.post(API_URL, product);
+            const response = await axios.post(API_URL_PROD, product);
 
             commit('addProduct', response)
         },
 
         async updateProduct( { commit }, product){
-            const response = await axios.put(`${API_URL}/${product._id}`, product);
+            const response = await axios.put(`${API_URL_PROD}/${product._id}`, product);
 
             commit('updateProduct', response.data);
         },
 
         async deleteProduct( { commit }, productId){
-            await axios.delete(`${API_URL}/${productId}`);
+            await axios.delete(`${API_URL_PROD}/${productId}`);
 
             commit('deleteProduct', productId);
-        }
+        },
+
+        //actions for woman Product
+
+        async getWomanProducts( { commit } ){
+            const response = await axios.get(API_URL_WOMANPROD);
+
+            commit('getWomanProd', response.data);
+        },
+
+        async addWomanProduct( { commit }, product){
+            const response = await axios.post(API_URL_WOMANPROD, product);
+
+            commit('addProduct', response)
+        },
+
+        async updateWomanProduct( { commit }, product){
+            const response = await axios.put(`${API_URL_WOMANPROD}/${product._id}`, product);
+
+            commit('updateProduct', response.data);
+        },
+
+        async deleteWomanProduct( { commit }, productId){
+            await axios.delete(`${API_URL_WOMANPROD}/${productId}`);
+
+            commit('deleteProduct', productId);
+        },
     }
 });
 
