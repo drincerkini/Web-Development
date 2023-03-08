@@ -10,6 +10,7 @@ import ImagePage from '../pages/imagePage.vue';
 import ItemsPage from '../pages/ItemPage.vue'
 import ItemList from '../pages/ItemLists.vue';
 import WomanPage from '../pages/woman/WomanPage.vue';
+import CreateWomanPage from '../pages/woman/WomanCreatePage.vue';
 
 const routes = [
     {
@@ -66,6 +67,11 @@ const routes = [
         path:'/womanproduct',
         name: 'womanproduct',
         component: WomanPage
+    },
+    {
+        path:'/create-womanprod',
+        name: 'create-womanprod',
+        component: CreateWomanPage
     }
 ]
 
