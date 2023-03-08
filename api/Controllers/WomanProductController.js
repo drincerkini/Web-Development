@@ -1,37 +1,36 @@
-import ProductModel from "../models/ProductModel"
-const prodController = {
+import WomanProductModel from '../models/WomanProductModel';
+
+const womanProdController = {
     get: async (req, res) => {
         try{
-            const list = await ProductModel.find();
+            const list = await WomanProductModel.find();
             return res.json(list);
-        }catch(err){
+        }catch(err) {
             console.log('error -- ', err);
         }
     },
-    getbyid: async (req, res) => {
-        try {
-            const product = await ProductModel.findOne( { _id: req.params.id});
-    
-            if(!product) throw Error("Product not Found!");
-    
-            return res.json(product);
+    getByID: async(req, res) => {
+        try{
+            const womanProd = await WomanProductModel.findOne( { _id: req.params.id} );
+            if(!womanProd) throw Error("Women Product Not Found!");
+
+            return res.json(womanProd);
         }catch(err){
             res.status(404).json( {error: err.message});
         }
     },
     post: async (req, res) => {
-        const product = new ProductModel(req.body);
+        const womanProd = new WomanProductModel(req.body);
         try{
-            const newProduct = await product.save();
-            res.status(200).json(newProduct);
+            const newProd = await womanProd.save();
+            res.status(200).json(newProd);
         }catch(err) {
             res.status(400).json( { error: err.message});
         }
     },
-    
     put: async (req, res) => {
         try{
-            const updatedProduct = await ProductModel.updateOne(
+            const updatedProduct = await WomanProductModel.updateOne(
                 { _id: req.params.id },
                 {$set : {
                     title: req.body.title,
@@ -49,13 +48,14 @@ const prodController = {
     },
     delete: async (req, res) => {
         try{
-            const removeProduct = await ProductModel.remove( { _id: req.params.id } );
+            const removeProduct = await WomanProductModel.remove( { _id: req.params.id } );
             removeProduct.save();
             res.json(removeProduct);
         }catch(err) {
             res.json( { msg: true });
         }
     }
-};
 
-export default prodController;
+}
+
+export default womanProdController;

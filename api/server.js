@@ -11,7 +11,8 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import productsRouter from "./routes/productsRouter";
 import multer from "multer";
-import ItemModel from './models/ItemsModel'
+import ItemModel from './models/ItemsModel';
+import womanRouter from './routes/womanProductRouter';
 
 mongoose
   .connect(`${MONGO_CONECTION_URI}:${MONGO_PORT}/${MONGO_DB_NAME}`)
@@ -83,6 +84,8 @@ mongoose
     });
 
     app.use("/products", productsRouter);
+
+    app.use("/womanproduct", womanRouter);
 
     app.get("/api", (req, res) => {
       res.json({ succes: true });
