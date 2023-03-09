@@ -18,13 +18,17 @@ const store = createStore({
             return state.user.email;
         }
     },
+
+
     mutations: {
 
 
        //Mutation for setting an actual user
         setUser(state, user) {
-        state.user = user;
-      },
+            state.user = user;
+        },
+
+        ///mutation for product
 
         // READ operation
         getProducts(state, products){
@@ -74,16 +78,16 @@ const store = createStore({
     actions: {
         
          //REGISTER USER METHOD WHICH CALLS SIGNUPUSER METHOD
-    async register(_, payload) {
-        await signupUser(payload);
-        payload.navigate();
-      },
+        async register(_, payload) {
+            await signupUser(payload);
+            payload.navigate();
+        },
 
-      async login({ commit }, payload) {
-        const { user } = await loginUser(payload);
-        commit('setUser', user);
-        payload.navigate();
-      },
+        async login({ commit }, payload) {
+            const { user } = await loginUser(payload);
+            commit('setUser', user);
+            payload.navigate();
+        },
 
         async fetchUser(context ,user) {
             if (user) {
@@ -94,6 +98,8 @@ const store = createStore({
               context.commit("SET_USER", null);
             }
         },
+
+        //actions for products
         async getProducts( { commit } ){
             const response = await axios.get(API_URL_PROD);
 
@@ -123,45 +129,47 @@ const store = createStore({
 
         async getWomanProductList( { commit } ){
         
-            const response = await axios.get(API_URL_WOMAN_PROD);
+            const response = await axios.get(API_URL_PROD);
+
             commit('SET_WOMAN_PRODUCT', response.data);
         },
     
-    async getWomanById( { commit }, id){
-        try {
-            const response = await axios.get(`${API_URL_WOMAN_PROD}/${id}`);
-            commit('SET_WOMAN_PRODUCT', response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    },
+        async getWomanById( { commit }, id){
+            try {
+                const response = await axios.get(`${API_URL_WOMAN_PROD}/${id}`);
+                commit('SET_WOMAN_PRODUCT', response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        },
 
-    async addWomanProduct( { commit }, product){
-        try{
-            const response = await axios.post(API_URL_WOMAN_PROD, product);
-            commit('ADD_WOMAN_PRODUCT', response);
-        }catch (error) {
-            console.error(error);
-        }
-    },
+        async addWomanProduct( { commit }, product){
+            try{
+                const response = await axios.post(API_URL_WOMAN_PROD, product);
+                commit('ADD_WOMAN_PRODUCT', response);
+            }catch (error) {
+                console.error(error);
+            }
+        },
 
-    async updateWomanProduct( { commit }, product){
-        try{
-            const response = await axios.put(`${API_URL_WOMAN_PROD}/${product._id}`, product);
-            commit('UPDATE_WOMAN_PRODUCT', response.data);
-        }catch (error) {
-            console.error(error);
-        }
-    },
+        async updateWomanProduct( { commit }, product){
+            try{
+                const response = await axios.put(`${API_URL_WOMAN_PROD}/${product._id}`, product);
+                commit('UPDATE_WOMAN_PRODUCT', response.data);
+            }catch (error) {
+                console.error(error);
+            }
+        },
 
-    async deleteWomanProduct( { commit }, id){
-        try{
-            await axios.delete(`${API_URL_WOMAN_PROD}/${id}`);
-            commit('DELETE_WOMAN_PRODUCT', id);
-        }catch (error) {
-            console.error(error);
+        async deleteWomanProduct( { commit }, id){
+            try{
+                await axios.delete(`${API_URL_WOMAN_PROD}/${id}`);
+                commit('DELETE_WOMAN_PRODUCT', id);
+            }catch (error) {
+                console.error(error);
+            }
         }
-    }
+
     },
 
     

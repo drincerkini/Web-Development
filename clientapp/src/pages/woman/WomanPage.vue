@@ -6,7 +6,7 @@
       <section>
         <h3>Category</h3>
         <div class="wraper">
-            <div v-for="product in this.womanProductsList" :key="product._id" class="card">
+            <div v-for="product in this.womanproductsist" :key="product._id" class="card">
             
                 <h3> Title: {{ product.title }}</h3>
 
@@ -16,7 +16,7 @@
 
                 <p> Category: {{ product.category }}</p>
 
-                <img :src="'/uploads/' + product.image.filename" class="photo"> 
+                <!-- <img :src="'/uploads/' + product.image.filename" class="photo">  -->
 
 
                 <!-- <router-link :to="{ name: 'edit-product', params: { id: '755' } }">Edit</router-link> -->
@@ -35,7 +35,7 @@
 
 export default {
     computed : {
-      ...mapState(['womanProductsList'])
+      ...mapState(['womanproductsist'])
     },
     mounted() {
       this.$store.dispatch('getWomanProductList');
