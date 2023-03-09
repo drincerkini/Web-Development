@@ -6,17 +6,17 @@
       <section>
         <h3>Category</h3>
         <div class="wraper">
-            <div v-for="product in this.womanproducts" :key="product._id" class="card">
+            <div v-for="product in this.womanProductsList" :key="product._id" class="card">
             
-                <h3>{{ product.title }}</h3>
+                <h3> Title: {{ product.title }}</h3>
 
-                <p>{{ product.description }}</p>
+                <p> Description: {{ product.description }}</p>
 
-                <p>{{ product.price }}</p>
+                <p> Price: {{ product.price }}</p>
 
-                <p>{{ product.category }}</p>
+                <p> Category: {{ product.category }}</p>
 
-                <!--<img :src="'/uploads/' + product.image.filename" class="photo"> -->
+                <img :src="'/uploads/' + product.image.filename" class="photo"> 
 
 
                 <!-- <router-link :to="{ name: 'edit-product', params: { id: '755' } }">Edit</router-link> -->
@@ -31,20 +31,20 @@
 
 <script>
 
-import { mapState } from 'vuex';
+ import { mapState } from 'vuex';
 
 export default {
     computed : {
-      ...mapState(['womanproducts'])
+      ...mapState(['womanProductsList'])
     },
     mounted() {
-      this.$store.dispatch('getWomanProducts');
+      this.$store.dispatch('getWomanProductList');
     },
     methods: {
       async handleDelete(productId){
         if (window.confirm("Do you really want to delete?")) {
           try {
-            this.$store.dispatch('updateWomanProduct', productId);
+            this.$store.dispatch('deleteWomanProduct', productId);
           }catch(err) {
             console.log("erro", err.message);
           }

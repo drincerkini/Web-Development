@@ -1,17 +1,17 @@
 <template>
 <h3>Create Woman Product</h3>
     <form @submit.prevent="handleAddProduct">
-      <label for="name">Name:</label>
-      <input id="name" v-model="this.product.name" type="text" />
+      <label for="name">Title:</label>
+      <input id="name" v-model="this.title" type="text" />
   
       <label for="description">Description:</label>
-      <input id="description" v-model="this.product.description" type="text" />
+      <input id="description" v-model="this.description" type="text" />
 
       <label for="price">Description:</label>
-      <input id="price" v-model="this.product.price" type="number" />
+      <input id="price" v-model="this.price" type="number" />
 
       <label for="category">Description:</label>
-      <input id="category" v-model="this.product.category" type="text" />
+      <input id="category" v-model="this.category" type="text" />
   
       <label for="image">Image:</label>
       <input id="image" ref="imageInput" type="file" @change="handleImageChange" />
@@ -24,27 +24,36 @@
 export default {
     data() {
         return {
-            product: {
-                title: '',
-                description: '',
-                price: null,
-                category: '',
-                image: ''
-            }
+            title: '',
+            description: '',
+            price: null,
+            category: '',
+            image: null
         }
     },
     methods: {
         handleImageChange() {
-        this.image = this.$refs.imageInput.files[0];
+            this.image = this.$refs.imageInput.files[0];
         },
         async handleAddProduct(){
             try{
-                await this.$store.dispatch('addWomanProduct', this.product);
-                this.$router.push('/products');
+                await this.$store.dispatch('addWomanProduct', this.formData);
+                this.$router.push('/womanproduct');
             }catch(err){
                 console.log('error ---- ', err.message);
             }
             
+        }
+    },
+    computed: {
+        formData(){
+            const data = new FormData();
+            data.append('title', this.title);
+            data.append('description', this.description);
+            data.append('price', this.price);
+            data.append('category', this.category);
+            data.append('image', this.image);
+            return data;
         }
     }
 }

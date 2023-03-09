@@ -1,29 +1,29 @@
-import { createStore } from "vuex";
-import axios from "axios";
-import signupUser from "../../firebase/user/signupUser";
-import loginUser from "../../firebase/user/loginUser";
+import { createStore } from 'vuex';
+import axios from 'axios';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+
 
 const API_URL_PROD = 'http://localhost:3000/products';
-const API_URL_WOMANPROD= 'http://localhost:3000/womanproduct';
+const API_URL_WOMAN_PROD= 'http://localhost:3000/womanproduct';
 
 const store = createStore({
-  state: {
-    user: null,
-    products: [],
-    womanproducts: []
-  },
+    state: {
+        user: null,
+        products: [],
+        womanproductsist: []
+    },
+    getters: {
+        username(state){
+            return state.user.email;
+        }
+    },
+    mutations: {
 
-  
-  getters: {
-    username(state) {
-      return state.user.email;
-    },
-  },
-  mutations: {
-    //Mutation for setting an actual user
-    setUser(state, user) {
-      state.user = user;
-    },
+
+        SET_USER(state, user) {
+            state.user = user;
+        },
+
         // READ operation
         getProducts(state, products){
             state.products = products;
@@ -47,137 +47,134 @@ const store = createStore({
             state.products = state.products.filter(prod => prod._id !== productId);
         },
 
-        // Read Operation from woman prpoduct
-        getWomanProd(state, product){
-            state.womanproducts = product;
-        },
+        //mutation s ffor woman products
 
-        //Create Operation for WomanProduct
-        addWomanProd(state, product){
-            state.womanproducts.push(product);
+        SET_WOMAN_PRODUCT(state, product){
+            state.womanproductsist = product;
         },
-
-        //Update Operation for woman product
-        updateWomanProd(state, product){
-            const index = state.womanproducts.findIndex(i => i._id === product._id);
+    
+        ADD_WOMAN_PRODUCT(state, product){
+            state.womanproductsist.push(product);
+        },
+    
+        UPDATE_WOMAN_PRODUCT(state, product){
+            const index = state.womanproductsist.findIndex(i => i._id === product._id);
             if(index !== -1){
-                state.womanproducts.splice(index, 1, product);
+                state.womanproductsist.splice(index, 1, product);
+            }
+        },
+    
+        DELETE_WOMAN_PRODUCT(state, id){
+            state.womanproductsist = state.womanproductsist.filter(prod => prod._id !== id);
+        }
+
+    },
+    actions: {
+        
+        async register( { commit },  user){
+            const response = await createUserWithEmailAndPassword(getAuth(), user.email, user.password);
+            if(response) {
+                commit('SET_USER', response.user);
+            }else{
+                throw new Error('Unable to register user');
             }
         },
 
-        //DELETE Operation fro woman Product
-        deleteWomanProd(state, productId){
-            state.womanproducts = state.womanproducts.filter(prod => prod._id !== productId);
+        async logIn( { commit }, user){
+            const response = await signInWithEmailAndPassword(getAuth(), user.email, user.password);
+            if(response) {
+                commit('SET_USER', response.user);
+            }else {
+                throw new Error('Login failed');
+            }
         },
 
-    // READ operation
-    // getProducts(state, products) {
-    //   state.products = products;
-    // },
+        async fetchUser(context ,user) {
+            if (user) {
+                context.commit("SET_USER", {
+                    email: user.email
+                });
+            } else {
+              context.commit("SET_USER", null);
+            }
+        },
 
-    // CREATE operation
-    // addProduct(state, product) {
-    //   state.products.push(product);
-    // },
+        async logOut({ commit }){
+            await signOut(getAuth());
+            commit('SET_USER', null);
+        },
 
-    // UPDATE operation
-    // updateProduct(state, product) {
-    //   const index = state.products.findIndex((i) => i._id === product._id);
-    //   if (index !== -1) {
-    //     state.products.splice(index, 1, product);
-    //   }
-    // },
+        async getProducts( { commit } ){
+            const response = await axios.get(API_URL_PROD);
 
-    // DELETE operation
-    // deleteProduct(state, productId) {
-    //   state.products = state.products.filter((prod) => prod._id !== productId);
-    // },
-  },
+            commit('getProducts', response.data);
+        },
 
+        async addProduct( { commit }, product){
+            const response = await axios.post(API_URL_PROD, product);
+
+            commit('addProduct', response)
+        },
+
+        async updateProduct( { commit }, product){
+            const response = await axios.put(`${API_URL_PROD}/${product._id}`, product);
+
+            commit('updateProduct', response.data);
+        },
+
+        async deleteProduct( { commit }, productId){
+            await axios.delete(`${API_URL_PROD}/${productId}`);
+
+            commit('deleteProduct', productId);
+        },
+
+
+        //woman products actions
+
+        async getWomanProductList( { commit } ){
         
-  actions: {
-    //REGISTER USER METHOD WHICH CALLS SIGNUPUSER METHOD
-    async register(_, payload) {
-      await signupUser(payload);
-      payload.navigate();
+            const response = await axios.get(API_URL_WOMAN_PROD);
+            commit('SET_WOMAN_PRODUCT', response.data);
+        },
+    
+    async getWomanById( { commit }, id){
+        try {
+            const response = await axios.get(`${API_URL_WOMAN_PROD}/${id}`);
+            commit('SET_WOMAN_PRODUCT', response.data);
+        } catch (error) {
+            console.error(error);
+        }
     },
 
-    // async login(_, user) {
-    // const response = await signInWithEmailAndPassword(getAuth(), user.email, user.password);
-    // if(response) {
-    //     commit('setUser', response.user);
-    // }else {
-    //     throw new Error('Login failed');
-    // }
-    // },
-
-    async login({ commit }, payload) {
-      const { user } = await loginUser(payload);
-      commit('setUser', user);
-      payload.navigate();
+    async addWomanProduct( { commit }, product){
+        try{
+            const response = await axios.post(API_URL_WOMAN_PROD, product);
+            commit('ADD_WOMAN_PRODUCT', response);
+        }catch (error) {
+            console.error(error);
+        }
     },
 
-    // async fetchUser(context, user) {
-    //   if (user) {
-    //     context.commit("setUser", {
-    //       email: user.email,
-    //     });
-    //   } else {
-    //     context.commit("setUser", null);
-    //   }
-    // },
-
-    async getProducts({ commit }) {
-      const response = await axios.get(API_URL);
-
-      commit("getProducts", response.data);
+    async updateWomanProduct( { commit }, product){
+        try{
+            const response = await axios.put(`${API_URL_WOMAN_PROD}/${product._id}`, product);
+            commit('UPDATE_WOMAN_PRODUCT', response.data);
+        }catch (error) {
+            console.error(error);
+        }
     },
 
-        //actions for woman Product
-
-        // async getWomanProducts( { commit } ){
-        //     const response = await axios.get(API_URL_WOMANPROD);
-
-        //     commit('getWomanProd', response.data);
-        // },
-
-        // async addWomanProduct( { commit }, product){
-        //     const response = await axios.post(API_URL_WOMANPROD, product);
-
-        //     commit('addProduct', response)
-        // },
-
-        // async updateWomanProduct( { commit }, product){
-        //     const response = await axios.put(`${API_URL_WOMANPROD}/${product._id}`, product);
-
-        //     commit('updateProduct', response.data);
-        // },
-
-        // async deleteWomanProduct( { commit }, productId){
-        //     await axios.delete(`${API_URL_WOMANPROD}/${productId}`);
-
-        //     commit('deleteProduct', productId);
-        // },
-    },
-    async addProduct({ commit }, product) {
-      const response = await axios.post(API_URL, product);
-
-      commit("addProduct", response);
+    async deleteWomanProduct( { commit }, id){
+        try{
+            await axios.delete(`${API_URL_WOMAN_PROD}/${id}`);
+            commit('DELETE_WOMAN_PRODUCT', id);
+        }catch (error) {
+            console.error(error);
+        }
+    }
     },
 
-    async updateProduct({ commit }, product) {
-      const response = await axios.put(`${API_URL}/${product._id}`, product);
-
-      commit("updateProduct", response.data);
-    },
-
-    async deleteProduct({ commit }, productId) {
-      await axios.delete(`${API_URL}/${productId}`);
-
-      commit("deleteProduct", productId);
-    },
-  },
-
-);
+    
+});
 
 export default store;
