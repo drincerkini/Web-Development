@@ -11,9 +11,9 @@
       <li><router-link to="/create-womanprod" class="lista">Add Woman Products</router-link></li>
     </ul>
 
-    <div v-if="user">
+    <div v-if="$store.state.user">
         <div class="username">
-            Howdy {{ username  }}
+            Hello {{ $store.state.user.email }}
         </div>
         <a href="#" @click.prevent="handleLogOut" type="button">Logout</a>
     </div>
@@ -27,22 +27,33 @@
 </template>
 
 <script>
+import { onAuthStateChanged,getAuth,signOut } from 'firebase/auth';
 import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'App',
 
   methods: {
-    async handleLogOut(){
-      await this.$store.dispatch('logOut');
-      this.$router.push('/login');
+    async handleLogOut() {
+      const auth = getAuth()
+      await signOut(auth);
+      await this.$router.push('login');
+      location.reload();
     }
   },
 
   computed: {
     ...mapState(['user']),
     ...mapGetters(['username'])
-  }
+  },
+  mounted() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$store.commit('setUser', user);
+        }
+      })
+    }
 }
 </script>
 

@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import signupUser from "../../firebase/user/signupUser";
+import loginUser from "../../firebase/user/loginUser";
 
 
 const API_URL_PROD = 'http://localhost:3000/products';
@@ -20,9 +21,10 @@ const store = createStore({
     mutations: {
 
 
-        SET_USER(state, user) {
-            state.user = user;
-        },
+       //Mutation for setting an actual user
+        setUser(state, user) {
+        state.user = user;
+      },
 
         // READ operation
         getProducts(state, products){
@@ -71,23 +73,17 @@ const store = createStore({
     },
     actions: {
         
-        async register( { commit },  user){
-            const response = await createUserWithEmailAndPassword(getAuth(), user.email, user.password);
-            if(response) {
-                commit('SET_USER', response.user);
-            }else{
-                throw new Error('Unable to register user');
-            }
-        },
+         //REGISTER USER METHOD WHICH CALLS SIGNUPUSER METHOD
+    async register(_, payload) {
+        await signupUser(payload);
+        payload.navigate();
+      },
 
-        async logIn( { commit }, user){
-            const response = await signInWithEmailAndPassword(getAuth(), user.email, user.password);
-            if(response) {
-                commit('SET_USER', response.user);
-            }else {
-                throw new Error('Login failed');
-            }
-        },
+      async login({ commit }, payload) {
+        const { user } = await loginUser(payload);
+        commit('setUser', user);
+        payload.navigate();
+      },
 
         async fetchUser(context ,user) {
             if (user) {
@@ -98,12 +94,6 @@ const store = createStore({
               context.commit("SET_USER", null);
             }
         },
-
-        async logOut({ commit }){
-            await signOut(getAuth());
-            commit('SET_USER', null);
-        },
-
         async getProducts( { commit } ){
             const response = await axios.get(API_URL_PROD);
 
