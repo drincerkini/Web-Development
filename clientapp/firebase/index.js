@@ -1,5 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { connectFunctionsEmulator, getFunctions } from "firebase/functions";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -10,10 +13,13 @@ const firebaseConfig = {
   projectId: "vuevuexfirebaseauth",
   storageBucket: "vuevuexfirebaseauth.appspot.com",
   messagingSenderId: "458798238257",
-  appId: "1:458798238257:web:c63c446bf8da1b4d8ee310"
+  appId: "1:458798238257:web:c63c446bf8da1b4d8ee310",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+connectAuthEmulator(getAuth(), "http://127.0.0.1:9099");
+connectFunctionsEmulator(getFunctions(), "http://127.0.0.1:5001");
 
 export default app;
