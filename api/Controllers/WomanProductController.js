@@ -20,10 +20,21 @@ const womanProdController = {
         }
     },
     post: async (req, res) => {
-        const womanProd = new WomanProductModel(req.body);
+        const product = new WomanProductModel({
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            categpry: req.body.category,
+            image: {
+                filename: req.file.filename,
+                mimetype: req.file.mimetype,
+                size: req.file.size,
+                url: req.file.path,
+            },
+        });
         try{
-            const newProd = await womanProd.save();
-            res.status(200).json(newProd);
+            const newProduct = await product.save();
+            res.status(200).json(newProduct);
         }catch(err) {
             res.status(400).json( { error: err.message});
         }

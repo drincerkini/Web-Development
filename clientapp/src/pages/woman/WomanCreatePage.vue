@@ -1,5 +1,6 @@
 <template>
-<h3>Create Woman Product</h3>
+    <h3>Create Product</h3>
+
     <form @submit.prevent="handleAddProduct">
       <label for="name">Title:</label>
       <input id="name" v-model="this.title" type="text" />
@@ -20,7 +21,9 @@
 </form>
 
 </template>
+
 <script>
+
 export default {
     data() {
         return {
@@ -31,6 +34,7 @@ export default {
             image: null
         }
     },
+
     methods: {
         handleImageChange() {
             this.image = this.$refs.imageInput.files[0];
@@ -38,7 +42,7 @@ export default {
         async handleAddProduct(){
             try{
                 await this.$store.dispatch('addWomanProduct', this.formData);
-                this.$router.push('/womanproduct');
+                this.$router.push('/womanproduct')
             }catch(err){
                 console.log('error ---- ', err.message);
             }
@@ -57,5 +61,7 @@ export default {
         }
     }
 }
+
+
 
 </script>

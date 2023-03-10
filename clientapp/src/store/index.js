@@ -11,7 +11,7 @@ const store = createStore({
     state: {
         user: null,
         products: [],
-        womanproductsist: []
+        womanproductslist: []
     },
     getters: {
         username(state){
@@ -56,22 +56,22 @@ const store = createStore({
         //mutation s ffor woman products
 
         SET_WOMAN_PRODUCT(state, product){
-            state.womanproductsist = product;
+            state.womanproductslist = product;
         },
     
         ADD_WOMAN_PRODUCT(state, product){
-            state.womanproductsist.push(product);
+            state.womanproductslist.push(product);
         },
     
         UPDATE_WOMAN_PRODUCT(state, product){
-            const index = state.womanproductsist.findIndex(i => i._id === product._id);
+            const index = state.womanproductslist.findIndex(i => i._id === product._id);
             if(index !== -1){
-                state.womanproductsist.splice(index, 1, product);
+                state.womanproductslist.splice(index, 1, product);
             }
         },
     
         DELETE_WOMAN_PRODUCT(state, id){
-            state.womanproductsist = state.womanproductsist.filter(prod => prod._id !== id);
+            state.womanproductslist = state.womanproductslist.filter(prod => prod._id !== id);
         }
 
     },
