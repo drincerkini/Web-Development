@@ -5,7 +5,12 @@ const schema = new mongoose.Schema({
     description: String,
     price: Number,
     category: String,
-    image: String
+    image: {
+        filename: String,
+        mimetype: String,
+        size: Number,
+        url: String,
+    }
 });
 
 const model = mongoose.model('products', schema);

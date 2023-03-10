@@ -129,7 +129,7 @@ const store = createStore({
 
         async getWomanProductList( { commit } ){
         
-            const response = await axios.get(API_URL_PROD);
+            const response = await axios.get(API_URL_WOMAN_PROD);
 
             commit('SET_WOMAN_PRODUCT', response.data);
         },

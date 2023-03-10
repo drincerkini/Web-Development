@@ -83,9 +83,9 @@ mongoose
       }
     });
 
-    app.use("/products", productsRouter);
+    app.use("/products", upload.single("image"), productsRouter);
 
-    app.use("/womanproduct", womanRouter);
+    app.use("/womanproduct", upload.single("image"), womanRouter);
 
     app.get("/api", (req, res) => {
       res.json({ succes: true });

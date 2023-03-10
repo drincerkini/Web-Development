@@ -35,7 +35,7 @@
 
 export default {
     computed : {
-      ...mapState(['womanproductsist'])
+      ...mapState(['womanproductslist'])
     },
     mounted() {
       this.$store.dispatch('getWomanProductList');

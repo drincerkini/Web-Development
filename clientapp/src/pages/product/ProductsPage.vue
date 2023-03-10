@@ -1,30 +1,24 @@
 <template>
-    <div class="home">
-      <main>
-        <h2>Currently looking at Products page!</h2>
-      </main>
-      <section>
-        <h3>Category</h3>
-        <div class="wraper">
-            <div v-for="product in this.products" :key="product._id" class="card">
-            
-                <h3>{{ product.title }}</h3>
-
-                <p>{{ product.description }}</p>
-
-                <p>{{ product.price }}</p>
-
-                <p>{{ product.category }}</p>
-
-                <p>{{ product.image }}</p>
-
-                <!-- <router-link :to="{ name: 'edit-product', params: { id: '755' } }">Edit</router-link> -->
-                <!-- <router-link :to="{name: 'edit-product', params: { id: product._id }}">Edit </router-link> -->
-
-              <button @click="handleDelete(`${product._id}`)">Delete</button>
+<div class="container ">
+      <div class="">
+        <main>
+          <h2>Currently looking at Products page!</h2>
+        </main>
+        <section>
+          <h3>Category</h3>
+        <div class="d-flex">
+          <div class="card" style="width: 18rem;" v-for="product in this.products" :key="product._id">
+            <img :src="'/uploads/' + product.image.filename" class="photo">
+            <div class="card-body"> 
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <a href="#" class="btn btn-primary">{{ product.price }}</a>
             </div>
-        </div>
-      </section>
+          </div>
+          </div>
+          
+        </section>
+      </div>
     </div>
 </template>
 
@@ -54,23 +48,3 @@ export default {
 
 </script>
 
-<style scoped>
-.wraper{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.card{
-  display: flex;
-  flex-direction:  column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(167, 161, 154);
-  border: 1px solid black;
-  border-radius: 50xp;
-  margin-right: 50px;
-  padding: 50px;
-}
-</style>

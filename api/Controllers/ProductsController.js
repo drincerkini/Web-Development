@@ -20,7 +20,18 @@ const prodController = {
         }
     },
     post: async (req, res) => {
-        const product = new ProductModel(req.body);
+        const product = new ProductModel({
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            categpry: req.body.category,
+            image: {
+                filename: req.file.filename,
+                mimetype: req.file.mimetype,
+                size: req.file.size,
+                url: req.file.path,
+            },
+        });
         try{
             const newProduct = await product.save();
             res.status(200).json(newProduct);

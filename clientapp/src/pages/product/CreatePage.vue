@@ -1,14 +1,24 @@
 <template>
     <h3>Create Product</h3>
 
-    <form v-on:submit.prevent='handleAddProduct'>
-        <input type="text" v-model="this.product.title" placeholder="Title">
-        <input type="text" v-model="this.product.description" placeholder="desc">
-        <input type="number" v-model="this.product.price" placeholder="price">
-        <input type="text" v-model="this.product.category" placeholder="category">
-        <input type="text" v-model="this.product.image" placeholder="image">
-        <button type="submit">Create Post</button>
-    </form>
+    <form @submit.prevent="handleAddProduct">
+      <label for="name">Title:</label>
+      <input id="name" v-model="this.title" type="text" />
+  
+      <label for="description">Description:</label>
+      <input id="description" v-model="this.description" type="text" />
+
+      <label for="price">Description:</label>
+      <input id="price" v-model="this.price" type="number" />
+
+      <label for="category">Description:</label>
+      <input id="category" v-model="this.category" type="text" />
+  
+      <label for="image">Image:</label>
+      <input id="image" ref="imageInput" type="file" @change="handleImageChange" />
+  
+      <button type="submit">Submit</button>
+</form>
 
 </template>
 
@@ -17,26 +27,37 @@
 export default {
     data() {
         return {
-            product: {
-                title: '',
-                description: '',
-                price: null,
-                category: '',
-                image: ''
-            }
+            title: '',
+            description: '',
+            price: null,
+            category: '',
+            image: null
         }
     },
-    methods: {
-        
 
+    methods: {
+        handleImageChange() {
+            this.image = this.$refs.imageInput.files[0];
+        },
         async handleAddProduct(){
             try{
-                await this.$store.dispatch('addProduct', this.product);
+                await this.$store.dispatch('addProduct', this.formData);
                 this.$router.push('/products')
             }catch(err){
                 console.log('error ---- ', err.message);
             }
             
+        }
+    },
+    computed: {
+        formData(){
+            const data = new FormData();
+            data.append('title', this.title);
+            data.append('description', this.description);
+            data.append('price', this.price);
+            data.append('category', this.category);
+            data.append('image', this.image);
+            return data;
         }
     }
 }
