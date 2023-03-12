@@ -16,7 +16,7 @@
               <form @submit.prevent="handleLoginUser">
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="email" class="form-control" placeholder="email" id="email" v-model="email">
+                    <input type="email" class="form-control" placeholder="Email" id="email" v-model="email">
                   </div>
                   <div class="input-group mb-4">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
@@ -85,7 +85,7 @@ export default {
 
   methods: {
     async handleLoginUser() {
-      this.$store.dispatch('login',{ 
+      await this.$store.dispatch('userModule/login',{ 
        email: this.email,
        password: this.password,
        navigate: () => this.$router.push('/')

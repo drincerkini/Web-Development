@@ -6,20 +6,16 @@ import {
 } from "firebase/auth";
 
 async function signupUser(payload) {
-  const { name, surname, address, email, password } = payload;
+  const { name, surname, email, password } = payload;
   const auth = getAuth();
   const result = await createUserWithEmailAndPassword(
     auth,
-    // name,
-    // surname,
-    // address,
     email,
     password
   );
 
   await updateProfile(result.user, {
     displayName: `${name} ${surname}`,
-    address: address,
   });
   // await signOut(auth);
 }
