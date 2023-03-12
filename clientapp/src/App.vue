@@ -1,6 +1,6 @@
 <template>
-  
-  <nav>
+  <HeaderComponent />
+  <!-- <nav>
     <ul>
       <li><router-link to="/" class="lista">Home</router-link></li>
       <li><router-link to="/about" class="lista">About</router-link></li>
@@ -22,42 +22,23 @@
         <router-link to="/register">Register</router-link>
     </div>
 
-  </nav>
+  </nav> -->
   <RouterView ></RouterView>
 </template>
 
 <script>
-import { onAuthStateChanged,getAuth,signOut } from 'firebase/auth';
-import { mapGetters, mapState } from 'vuex';
+import HeaderComponent from './components/HeaderComponent.vue';
 
 export default {
   name: 'App',
 
-  methods: {
-    async handleLogOut() {
-      const auth = getAuth()
-      await signOut(auth);
-      await this.$router.push('login');
-      location.reload();
-    }
-  },
-
-  computed: {
-    ...mapState(['user']),
-    ...mapGetters(['username'])
-  },
-  mounted() {
-      const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          this.$store.commit('setUser', user);
-        }
-      })
-    }
+  components: {
+    HeaderComponent
+  }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
