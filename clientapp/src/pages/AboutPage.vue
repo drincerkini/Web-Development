@@ -3,33 +3,131 @@
     <br />
     <br />
 
-<section class="section home-5-bg" id="home">
-    <div id="particles-js"></div>
-    <div class="bg-overlay"></div>
-    <div class="home-center">
-        <div class="home-desc-center">
-            <div class="container">
-                <div class="justify-content-center row">
-                    <div class="col-lg-7">
-                        <div class="mt-40 text-center home-5-content">
-                            <div class="home-icon mb-4"><i class="mdi mdi-pinwheel mdi-spin text-white h1"></i></div>
-                            <h1 class="text-white font-weight-normal home-5-title mb-0">A Clean &amp; Minimal Landing Template</h1>
-                            <p class="text-white-70 mt-4 f-15 mb-0">Ut enim ad minima veniam quis nostrum exercitationem ullam corporis at suscipit laboriosam nisi ut aliquid a commodi consequatur Quis autem.</p>
-                            <div class="mt-5">
-                                <input class="btn btn-default" type="button" value="Get started">
-                            </div>
+
+
+
+
+
+<section>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<section id="about-section" class="pt-5 pb-5">
+    <div class="container wrapabout">
+        <div class="red"></div>
+        <div class="row">
+            <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                <div class="blockabout">
+                    <div class="blockabout-inner text-center text-sm-start">
+                        <div class="title-big pb-3 mb-3">
+                            <h3>ABOUT US</h3>
                         </div>
+                        <p class="description-p text-muted pe-0 pe-lg-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere sequi, quia, est sed dicta aliquid quidem facilis culpa iure perferendis? Dolor ad quia deserunt.
+                        </p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <div class="sosmed-horizontal pt-3 pb-3">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                        <a href="#" class="btn rey-btn mt-3">See Our Products</a>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <figure class="potoaboutwrap">
+                    <img src="../../public/img/aboutimg.jpg" alt="potoabout" />
+                </figure>
+            </div>
         </div>
     </div>
+</section>
+
+                        
+<div class="container sub">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 pull-right" style="z-index:1020;"> 
+        <div id="carousel-example-generic" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item">
+                    <img src="../../public/img/service2.jpg" alt="item">
+                <div class="carousel-caption">
+                </div>
+                </div>
+               
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="icon-prev"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="icon-next"></span>
+                </a>
+            </div>    
+            <hr>
+        </div> 
+
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="well">
+                <h2>ABOUT PROJECT</h2>
+                <p class="">Here goes sub-title. Write few words about your awesome project</p>
+            </div>
+                <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>
+            </div>
+        </div>
+</div>                    
+
+
 </section>
 </template>
 
 
 <style scoped>
+body{margin-top:20px;}				                                  
+#about-section {
+    background: rgba(32, 33, 36, 0.1);
+    position: relative;
+}
 
+.blockabout {
+    padding: 20px;
+    background: white;
+}
+
+.blockabout-inner {
+    padding: 30px;
+    border: 1px solid rgba(32, 33, 36, 0.1);
+}
+
+.sosmed-horizontal a i {
+    border: 1px solid #070707;
+    border-radius: 50%;
+    color: #070707;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: auto 3px;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.rey-btn {
+    border: 2px solid #070707;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
 
 
 body{
