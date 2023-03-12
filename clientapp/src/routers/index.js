@@ -11,6 +11,7 @@ import ItemsPage from '../pages/ItemPage.vue'
 import ItemList from '../pages/ItemLists.vue';
 import WomanPage from '../pages/woman/WomanPage.vue';
 import CreateWomanPage from '../pages/woman/WomanCreatePage.vue';
+import ContactPage from '../pages/ContactPage.vue';
 
 const routes = [
     {
@@ -72,6 +73,11 @@ const routes = [
         path:'/create-womanprod',
         name: 'create-womanprod',
         component: CreateWomanPage
+    },
+    {
+        path:'/contact',
+        name: 'contact',
+        component: ContactPage
     }
 ]
 
