@@ -13,6 +13,7 @@ import productsRouter from "./routes/productsRouter";
 import multer from "multer";
 import ItemModel from './models/ItemsModel';
 import womanRouter from './routes/womanProductRouter';
+import serviceRouter from './routes/serviceRouter';
 
 mongoose
   .connect(`${MONGO_CONECTION_URI}:${MONGO_PORT}/${MONGO_DB_NAME}`)
@@ -84,6 +85,9 @@ mongoose
     });
 
     app.use("/products", upload.single("image"), productsRouter);
+
+    app.use("/services", upload.single("image"), serviceRouter);
+
 
     app.use("/womanproduct", upload.single("image"), womanRouter);
 

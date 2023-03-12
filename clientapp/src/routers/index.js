@@ -12,6 +12,8 @@ import ItemList from '../pages/ItemLists.vue';
 import WomanPage from '../pages/woman/WomanPage.vue';
 import CreateWomanPage from '../pages/woman/WomanCreatePage.vue';
 import ContactPage from '../pages/ContactPage.vue';
+import ServicePage from '../pages/service/ServicePage.vue';
+import CreateServicePage from '../pages/service/CreateServicePage.vue';
 
 const routes = [
     {
@@ -78,7 +80,17 @@ const routes = [
         path:'/contact',
         name: 'contact',
         component: ContactPage
-    }
+    },
+    {
+        path:'/services',
+        name: 'services',
+        component: ServicePage
+    },
+    {
+        path:'/create-service',
+        name: 'create-service',
+        component: CreateServicePage
+    },
 ]
 
 const router = createRouter({

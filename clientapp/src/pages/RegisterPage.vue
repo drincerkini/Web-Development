@@ -1,5 +1,5 @@
 <template>
-  <!-- <section>
+   <section>
     <h1>Register</h1>
     <form @submit.prevent="handleRegisterUser" class="regisrter-form">
       <div class="form-group">
@@ -24,10 +24,10 @@
       </div>
       <button>Register</button>
     </form>
-  </section> -->
+  </section> 
 
 
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <br>
 <br>
 <div class="container">
@@ -39,14 +39,14 @@
               <h1>Register</h1>
               <p class="text-muted">Register as a new account</p>
 
-              <form @submit.prevent="handleLoginUser">
+              <form @submit.prevent="handleRegisterUser">
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <input type="text" class="form-control" placeholder="Name" id="name" required v-model="name">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" placeholder="Last Name" id="surname" required v-model="email">
+                    <input type="text" class="form-control" placeholder="Last Name" id="surname" required v-model="surname">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -85,7 +85,7 @@
   <br />
 <br />
 <br />
-<br />
+<br /> -->
 
 </template>
 
@@ -111,7 +111,7 @@ export default {
           address: this.address,
           email: this.email,
           password: this.password,
-          navigate: () => this.$router.push('/')
+          // navigate: () => this.$router.push('/')
         }
         );
       }

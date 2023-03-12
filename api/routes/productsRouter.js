@@ -1,6 +1,5 @@
 import express from 'express';
 import prodController from '../Controllers/ProductsController';
-import ProductModel from '../models/ProductModel';
 
 const router = express.Router({mergeParams: true});
 

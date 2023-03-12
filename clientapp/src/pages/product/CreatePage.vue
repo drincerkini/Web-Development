@@ -41,7 +41,7 @@ export default {
         },
         async handleAddProduct(){
             try{
-                await this.$store.dispatch('addProduct', this.formData);
+                await this.$store.dispatch('productModule/addProduct', this.formData);
                 this.$router.push('/products')
             }catch(err){
                 console.log('error ---- ', err.message);

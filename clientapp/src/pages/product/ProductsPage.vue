@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-8">
                                     <button type="button" class="btn btn-block btn-primary btn-circle btn-icon-left">
-                                        <i class="fa fa-shopping-cart"></i>Add to cart
+                                       View
                                     </button>
                                 </div>
                             </div>
@@ -94,10 +94,11 @@ import { mapState } from 'vuex';
 
 export default {
     computed : {
-      ...mapState(['products'])
+    //   ...mapState(['products']),
+      ...mapState('productModule', ['products'])
     },
-    mounted() {
-      this.$store.dispatch('getProducts');
+    created() {
+      this.$store.dispatch('productModule/getProducts');
     },
     methods: {
       async handleDelete(productId){
