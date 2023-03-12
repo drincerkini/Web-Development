@@ -11,7 +11,7 @@
           <div class="card p-4">
             <div class="card-body">
               <h1>Login</h1>
-              <p class="text-muted">Sign In to your account</p>
+              <p class="text-muted">Log In to your account</p>
 
               <form @submit.prevent="handleLoginUser">
                   <div class="input-group mb-3">
@@ -35,7 +35,7 @@
             <div class="card-body text-center">
               <div>
                 <h2>Register </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Register now and have the opportunity to feel the greatness!</p>
                 <button type="button" class="btn btn-primary active mt-3"> <router-link to="/register"> Register Now</router-link></button>
               </div>
             </div>
@@ -48,23 +48,6 @@
 <br />
 <br />
 <br />
-
-  <!-- <form @submit.prevent="handleLoginUser" class="login-form">
-    <h3>Login</h3>
-    <div class="form-wrapper">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input id="email" v-model="email" />
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input id="password" type="password" v-model="password" />
-      </div>
-      <div class="controlls">
-        <button class="login-button">Login</button>
-      </div>
-    </div>
-  </form>  -->
 
 
 </template>

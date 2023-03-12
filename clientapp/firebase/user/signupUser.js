@@ -1,7 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  // signOut,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 
@@ -17,7 +17,7 @@ async function signupUser(payload) {
   await updateProfile(result.user, {
     displayName: `${name} ${surname}`,
   });
-  // await signOut(auth);
+  await signOut(auth);
 }
 
 export default signupUser;

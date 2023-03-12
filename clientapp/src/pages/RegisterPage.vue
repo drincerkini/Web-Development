@@ -9,7 +9,7 @@
           <div class="card p-4">
             <div class="card-body">
               <h1>Register</h1>
-              <p class="text-muted">Register!</p>
+              <p class="text-muted">Register now!</p>
 
               <form @submit.prevent="handleRegisterUser">
                 <div class="input-group mb-3">
@@ -42,8 +42,7 @@
             <div class="card-body text-center">
               <div>
                 <h2>Login </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua.</p>
+                <p>Click to Log-in and explore through our pages!</p>
                 <button type="button" class="btn btn-primary active mt-3"> <router-link to="/login"> Login
                     Now</router-link></button>
               </div>
@@ -79,12 +78,13 @@ export default {
           surname: this.surname,
           email: this.email,
           password: this.password,
-          navigate: () => this.$router.push('/')
+          navigate: () => this.$router.push('/login'),
         }
+        
         );
       }
       catch (err) {
-        console.log('err', err);
+        console.log('Error', err);
       }
     }
   }

@@ -10,15 +10,14 @@
             <li v-for="route in routes" v-bind:key="route.name">
               <router-link v-bind:to="route.path" class="nav-item nav-link">{{ route.name }}</router-link>
             </li>
-
           </ul>
         </div>
       </div>
       <div v-if="this.user" id="main-nav" class="collapse navbar-collapse">
         <div class="nav-item nav-link">
-
-          Hello {{ $store.state.userModule.user.displayName }}
+          Hello {{ $store.state.userModule.user.displayName }}!
         </div>
+        
         <a href="#" @click.prevent="handleLogOut" type="button" class="nav-item nav-link">Logout</a>
       </div>
       <div v-else id="main-nav" class="collapse navbar-collapse">
