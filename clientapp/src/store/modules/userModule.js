@@ -8,11 +8,15 @@ const userModule = {
 
   state: {
     user: null,
+    claims:null,
   },
   getters: {
     username(state) {
       return state.user.email;
     },
+    claims(state){
+      return state.claims;
+    }
   },
 
   mutations: {
@@ -20,6 +24,9 @@ const userModule = {
     setUser(state, user) {
       state.user = user;
     },
+    setUserClaims(state,userClaims){
+      state.claims=userClaims;
+    }
   },
 
   actions: {
@@ -35,12 +42,15 @@ const userModule = {
       payload.navigate();
     },
 
-    async fetchUser(context, user) {
+    async fetchUser(context, {user, claims}) {
       if (user) {
         context.commit("setUser", {
           email: user.email,
-        });
-      } else {
+        },
+        context.commit("setUserClaims", claims)
+        );
+      } 
+      else {
         context.commit("setUser", null);
       }
     },

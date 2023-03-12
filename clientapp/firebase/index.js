@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getAuth, connectAuthEmulator,onAuthStateChanged } from "firebase/auth";
 import { connectFunctionsEmulator, getFunctions } from "firebase/functions";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,6 +19,17 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+onAuthStateChanged(getAuth(), async (user) => {
+  if (user) {
+    const tokenResult = user
+      ? await getAuth().currentUser.getIdTokenResult()
+      : { claims: null };
+    this.$store.dispatch("userModule/fetchUser", {
+      user,
+      claims: tokenResult.claims,
+    });
+  }
+});
 connectAuthEmulator(getAuth(), "http://127.0.0.1:9099");
 connectFunctionsEmulator(getFunctions(), "http://127.0.0.1:5001");
 

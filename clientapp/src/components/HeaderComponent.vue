@@ -52,6 +52,7 @@ export default {
   computed: {
     ...mapState('userModule', ['user']),
     ...mapGetters('userModule', ['username']),
+    ...mapGetters('userModule', ['claims'])
 
   },
   data() {
@@ -61,7 +62,9 @@ export default {
         { path: "/about", name: "About" },
         { path: "/products", name: "Products" },
         { path: "/womanproduct", name: "Woman" },
-        { path: "/contact", name: "Contact us" }
+        { path: "/contact", name: "Contact us" },
+        { path: "/admin", name: "Dashboard" }
+
 
       ],
     }
