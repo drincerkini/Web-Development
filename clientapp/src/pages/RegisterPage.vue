@@ -14,24 +14,27 @@
               <form @submit.prevent="handleRegisterUser">
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Name" id="name" required v-model="name">
+                  <input type="text" class="form-control" placeholder="Name" id="name" v-model="name">
+                  <span v-if="v$.name.$error">{{ v$.name.$errors[0].$message }}</span>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Last Name" id="surname" required v-model="surname">
+                  <input type="text" class="form-control" placeholder="Last Name" id="surname" v-model="surname">
+                  <span v-if="v$.surname.$error">{{ v$.surname.$errors[0].$message }}</span>
                 </div>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                  <input type="email" class="form-control" placeholder="Email" id="email" required v-model="email">
+                  <input type="text" class="form-control" placeholder="Email" id="email" v-model="email">
+                  <span v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
                 </div>
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="Password" id="password" required
-                    v-model="password">
+                  <input type="password" class="form-control" placeholder="Password" id="password" v-model="password">
+                  <span v-if="v$.password.$error">{{ v$.password.$errors[0].$message }}</span>
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button type="submit" class="btn btn-primary px-4">Register</button>
+                    <button  type="submit" class="btn btn-primary px-4">Register</button>
                   </div>
                 </div>
               </form>
@@ -59,32 +62,43 @@
 </template>
 
 <script>
-
+import useValidate from '@vuelidate/core';
+import { required, email, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
   data() {
     return {
+      v$: useValidate(),
       name: '',
       surname: '',
       email: '',
       password: '',
     }
   },
+  validations() {
+    return {
+      name: { required, minLength: minLength(3), maxLength: maxLength(15) },
+      surname: { required, minLength: minLength(4), maxLength: maxLength(15) },
+      email: { required, email },
+      password: { required, minLength: minLength(8), maxLength: maxLength(20) },
+    }
+  },
   methods: {
     async handleRegisterUser() {
       try {
-        await this.$store.dispatch('userModule/register', {
-          name: this.name,
-          surname: this.surname,
-          email: this.email,
-          password: this.password,
-          navigate: () => this.$router.push('/login'),
-        }
-        
-        );
+        this.v$.$validate()
+        if (!this.v$.$error) {
+          await this.$store.dispatch('userModule/register', {
+            name: this.name,
+            surname: this.surname,
+            email: this.email,
+            password: this.password,
+            navigate: () => this.$router.push('/login'),
+          });
+        } 
       }
       catch (err) {
-        console.log('Error', err);
+        return err.v$.$errors[0].$message
       }
     }
   }
