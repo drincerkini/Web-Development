@@ -5,62 +5,39 @@
     
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="container">
-        <div class="shop-default shop-cards shop-tech">
+        <!-- <div class="shop-default shop-cards shop-tech">
             <div class="row">
                 <div class="col-md-6" v-for="service in this.services" :key="service._id">
-                    <div class="block product no-border z-depth-2-top z-depth-2--hover">
-                        <div class="block-image">
-                            <a href="#">
-                                <img :src="'/uploads/' + service.image.filename" class="img-center">
-                            </a>
-                            <span class="product-ribbon product-ribbon-right product-ribbon--style-1 bg-blue text-uppercase">New</span>
-                        </div>
-                        <div class="block-body text-center">
-                            <h3 class="heading heading-5 strong-600 text-capitalize">
-                                <a href="#">
-                                    {{service.title}}
-                                </a>
-                            </h3>
-                            <p class="product-description">
-                                {{service.description}}
-                            </p>
-                            <div class="product-colors mt-2">
-                                <div class="color-switch float-wrapper">
-                                    <a href="#" class="bg-purple"></a>
-                                    <a href="#" class="bg-pink"></a>
-                                    <a href="#" class="bg-blue"></a>
-                                </div>
-                            </div>
-                            <div class="product-buttons mt-4">
-                                <div class="row align-items-center">
-                                    <div class="col-2">
-                                        <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorite">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-2">
-                                        <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare">
-                                            <i class="fa fa-share"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-8">
-                                        <button type="button" class="btn btn-block btn-primary btn-circle btn-icon-left">
-                                            <i class="fa fa-shopping-cart"></i>View
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <CardComponent 
+                    :title = "`${service.title}`"
+                    :description = "`${service.description}`"
+                    :price = service.price
+                    :image = service.image.filename
+                />
+
                     <br />
                     <br />
                     <br />
                 </div>
                 
             </div>
-        </div>
+        </div> -->
+
+        <h2 class="page-header">Custom content</h2>
+		<div class="row">
+			<div class="col-sm-6 col-md-4" v-for="service in this.services" :key="service._id">
+				<div class="thumbnail material_thumbnail">
+					<img :src="'/uploads/' + service.image.filename" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
         
-          
+        </div>
     </div>
     
     
@@ -89,10 +66,14 @@
     </template>
     
     <script>
-    
+    // import CardComponent from '../../components/reusables/CardComponent.vue';
     import { mapState } from 'vuex';
     
     export default {
+        // components: {
+        //     CardComponent
+        // },
+
         computed : {
         //   ...mapState(['products']),
           ...mapState('serviceModule', ['services'])

@@ -80,6 +80,72 @@
                 </p>
             </div>
         </div>
+
+        <br />
+        <br />
+
+        
+        <h2 class="page-header">Media alignment</h2>
+		<div class="media material_media">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object material_media_object" data-src="holder.js/64x64" alt="64x64" src="../../public/uploads/image-1678656321621.jpeg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+				</a>
+			</div>
+			<div class="media-body material_media_body">
+				<h4 class="media-heading material_media_heading">Title media</h4>
+				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+				<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+		</div>
+
+        <br />
+
+        <h2 class="page-header">Custom content</h2>
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail material_thumbnail">
+					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
+        
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail material_thumbnail">
+					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail material_thumbnail">
+					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-6 col-md-4">
+				<div class="thumbnail material_thumbnail">
+					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
+        
+        </div>
 </div>                    
 
 
@@ -88,6 +154,77 @@
 
 
 <style scoped>
+
+/***********************Custom content***********************/
+.material_thumbnail {
+  border-radius: 0;
+  padding: 0;
+  box-shadow: 0 6px 13px rgba(0, 0, 0, 0.12);
+  -webkit-transition: box-shadow 0.3s ease-in 0s;
+  transition: box-shadow 0.3s ease-in 0s;
+}
+.material_thumbnail .material_caption {
+  padding: 10px 20px;
+}
+.material_thumbnail .material_btn {
+  font-size: 16px;
+  color: #ffab40;
+  text-decoration: none;
+  padding: 10px 0;
+  border: none;
+  -webkit-transition: color 0.4s ease-out 0s;
+  transition: color 0.4s ease-out 0s;
+}
+.material_thumbnail .material_btn:hover,
+.material_thumbnail .material_btn:active,
+.material_thumbnail .material_btn:focus {
+  background: none;
+  box-shadow: none;
+}
+.material_thumbnail:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+}
+
+
+/***********************Media alignment***********************/
+.material_media .material_media_object {
+  border-radius: 50%;
+  box-shadow: 0 0 1px 0px #ccc;
+  margin: 0 10px;
+  -webkit-transition: box-shadow 0.3s ease-in 0s;
+  transition: box-shadow 0.3s ease-in 0s;
+}
+.material_media .material_media_object:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+}
+.material_media .material_media_heading {
+  font-weight: 400;
+}
+.material_media .material_media_body {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+/***********************List group***********************/
+.material_list_group .material_list_group_item {
+  color: #fff;
+  font-weight: 400;
+  border-radius: 0;
+  background-color: #4092d9;
+  -webkit-transition: background-color 0.2s ease-out 0s;
+  transition: background-color 0.2s ease-out 0s;
+}
+.material_list_group .material_list_group_item:hover {
+  background-color: #336ea1;
+}
+.material_list_group .disabled:hover {
+  background-color: #4092d9;
+  color: #ffffff;
+}
+.material_list_group .material_badge {
+  background-color: #fff;
+  border-color: #ffffff;
+}
+
 body{margin-top:20px;}				                                  
 #about-section {
     background: rgba(32, 33, 36, 0.1);

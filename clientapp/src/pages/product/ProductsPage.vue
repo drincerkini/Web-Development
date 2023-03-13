@@ -8,50 +8,12 @@
     <div class="shop-default shop-cards shop-tech">
         <div class="row">
             <div class="col-md-6" v-for="product in this.products" :key="product._id">
-                <div class="block product no-border z-depth-2-top z-depth-2--hover">
-                    <div class="block-image">
-                        <a href="#">
-                            <img :src="'/uploads/' + product.image.filename" class="img-center">
-                        </a>
-                        <span class="product-ribbon product-ribbon-right product-ribbon--style-1 bg-blue text-uppercase">New</span>
-                    </div>
-                    <div class="block-body text-center">
-                        <h3 class="heading heading-5 strong-600 text-capitalize">
-                            <a href="#">
-                                {{product.title}}
-                            </a>
-                        </h3>
-                        <p class="product-description">
-                            {{product.description}}
-                        </p>
-                        <div class="product-colors mt-2">
-                            <div class="color-switch float-wrapper">
-                                <a href="#" class="bg-purple"></a>
-                                <a href="#" class="bg-pink"></a>
-                                <a href="#" class="bg-blue"></a>
-                            </div>
-                        </div>
-                        <div class="product-buttons mt-4">
-                            <div class="row align-items-center">
-                                <div class="col-2">
-                                    <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorite">
-                                        <i class="fa fa-heart"></i>
-                                    </button>
-                                </div>
-                                <div class="col-2">
-                                    <button type="button" class="btn-icon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare">
-                                        <i class="fa fa-share"></i>
-                                    </button>
-                                </div>
-                                <div class="col-8">
-                                    <button type="button" class="btn btn-block btn-primary btn-circle btn-icon-left">
-                                       View
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CardComponent 
+                    :title = "`${product.title}`"
+                    :description = "`${product.description}`"
+                    :price = product.price
+                    :image = product.image.filename
+                />
                 <br />
                 <br />
                 <br />
@@ -63,36 +25,17 @@
       
 </div>
 
-
-<!-- 
-<div class="container ">
-      <div class="">
-        <main>
-          <h2>Currently looking at Products page!</h2>
-        </main>
-        <section>
-          <h3>Category</h3>
-        <div class="d-flex">
-          <div class="card" style="width: 18rem;" v-for="product in this.products" :key="product._id">
-            <img :src="'/uploads/' + product.image.filename" class="photo">
-            <div class="card-body"> 
-              <h5 class="card-title">{{ product.title }}</h5>
-              <p class="card-text">{{ product.description }}</p>
-              <a href="#" class="btn btn-primary">{{ product.price }}</a>
-            </div>
-          </div>
-          </div>
-          
-        </section>
-      </div>
-    </div> -->
 </template>
 
 <script>
-
+import CardComponent from '../../components/reusables/CardComponent.vue';
 import { mapState } from 'vuex';
 
 export default {
+    components: {
+        CardComponent
+    },
+
     computed : {
     //   ...mapState(['products']),
       ...mapState('productModule', ['products'])
