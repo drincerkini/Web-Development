@@ -1,10 +1,8 @@
 <template>
-
-
- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<br>
-<br>
-<div class="container">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <br>
+  <br>
+  <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card-group mb-0">
@@ -14,19 +12,21 @@
               <p class="text-muted">Log In to your account</p>
 
               <form @submit.prevent="handleLoginUser">
-                  <div class="input-group mb-3">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="email" class="form-control" placeholder="Email" id="email" v-model="email">
+                <div class="input-group mb-3">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Email" id="email" v-model="email">
+                  <span v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
+                </div>
+                <div class="input-group mb-4">
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <input type="password" class="form-control" placeholder="Password" id="password" v-model="password">
+                  <span v-if="v$.password.$error">{{ v$.password.$errors[0].$message }}</span>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <button type="submit" class="btn btn-primary px-4">Login</button>
                   </div>
-                  <div class="input-group mb-4">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="Password" id="password" v-model="password">
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <button type="submit" class="btn btn-primary px-4">Login</button>
-                    </div>
-                  </div>
+                </div>
               </form>
 
             </div>
@@ -36,119 +36,133 @@
               <div>
                 <h2>Register </h2>
                 <p>Register now and have the opportunity to feel the greatness!</p>
-                <button type="button" class="btn btn-primary active mt-3"> <router-link to="/register"> Register Now</router-link></button>
+                <button type="button" class="btn btn-primary active mt-3"> <router-link to="/register"> Register
+                    Now</router-link></button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div> 
-<br />
-<br />
-<br />
-<br />
-
-
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
 </template>
   
 <script>
-
+import useValidate from '@vuelidate/core';
+import { required, email, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
 
   data() {
     return {
+      v$: useValidate(),
       user: null,
       email: '',
       password: '',
     }
 
   },
-
+  validations() {
+    return {
+      email: { required, email },
+      password: { required, minLength: minLength(8), maxLength: maxLength(20) },
+    }
+  },
   methods: {
     async handleLoginUser() {
-      await this.$store.dispatch('userModule/login',{ 
-       email: this.email,
-       password: this.password,
-       navigate: () => this.$router.push('/')
+      try {
+        this.v$.$validate()
+        await this.$store.dispatch('userModule/login', {
+          email: this.email,
+          password: this.password,
+          navigate: () => this.$router.push('/')
+        })
+      }
+      catch (err) {
+        return err.v$.$errors[0].$message;
+      }
     }
-  );
   }
-}
 };
 </script>
 
 
 <style scoped>
-body{
-    margin-top:20px;
-    background:#eee;
+body {
+  margin-top: 20px;
+  background: #eee;
 }
+
 .container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-    width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
 }
 
 @media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
+  .container {
+    max-width: 540px;
+  }
 }
 
 @media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
+  .container {
+    max-width: 720px;
+  }
 }
 
 @media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
+  .container {
+    max-width: 960px;
+  }
 }
 
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
+  .container {
+    max-width: 1140px;
+  }
 }
 
 
 
 .card-columns .card {
-    margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 @media (min-width: 576px) {
-    .card-columns {
-        column-count: 3;
-        column-gap: 1.25rem;
-    }
-    .card-columns .card {
-        display: inline-block;
-        width: 100%;
-    }
+  .card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+  }
+
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
 }
+
 .text-muted {
-    color: #9faecb !important;
+  color: #9faecb !important;
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
+
 .mb-3 {
-    margin-bottom: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .input-group {
-    position: relative;
-    display: flex;
-    width: 100%;
+  position: relative;
+  display: flex;
+  width: 100%;
 }
-
 </style>
