@@ -14,6 +14,7 @@ import multer from "multer";
 import serviceRouter from './routes/serviceRouter';
 import teamRouter from './routes/teamRouter';
 import newsRouter from './routes/newsRouter';
+import reviewsRouter from './routes/ReviewsRouter'
 
 
 
@@ -58,6 +59,8 @@ mongoose
     app.use("/teams", upload.single("image"), teamRouter);
 
     app.use("/news", upload.single("image"), newsRouter);
+
+    app.use('/reviews', upload.single("image"), reviewsRouter);
 
 
 

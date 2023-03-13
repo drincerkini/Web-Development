@@ -80,8 +80,8 @@
         <br />
         <br />
 
-        
-        <h2 class="page-header">Media alignment</h2>
+        <ReviewsComponentVue />
+        <!-- <h2 class="page-header">Media alignment</h2>
 		<div class="media material_media">
 			<div class="media-left">
 				<a href="#">
@@ -93,55 +93,13 @@
 				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 				<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 			</div>
-		</div>
+		</div> -->
 
         <br />
 
-        <h2 class="page-header">Custom content</h2>
-		<div class="row">
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail material_thumbnail">
-					<img src="" alt="Thumbnail label" />
-					<div class="caption material_caption">
-						<h3>Thumbnail label</h3>
-						<p>Nulla consequat massa quis enim. Donec pede justo</p>
-						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-					</div>
-				</div>
-			</div>
         
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail material_thumbnail">
-					<img src="" alt="Thumbnail label" />
-					<div class="caption material_caption">
-						<h3>Thumbnail label</h3>
-						<p>Nulla consequat massa quis enim. Donec pede justo</p>
-						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail material_thumbnail">
-					<img src="" alt="Thumbnail label" />
-					<div class="caption material_caption">
-						<h3>Thumbnail label</h3>
-						<p>Nulla consequat massa quis enim. Donec pede justo</p>
-						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-					</div>
-				</div>
-			</div>
-            <div class="col-sm-6 col-md-4">
-				<div class="thumbnail material_thumbnail">
-					<img src="" alt="Thumbnail label" />
-					<div class="caption material_caption">
-						<h3>Thumbnail label</h3>
-						<p>Nulla consequat massa quis enim. Donec pede justo</p>
-						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-					</div>
-				</div>
-			</div>
         
-        </div>
+        
 </div>                    
 
 <TeamComponent />
@@ -152,10 +110,12 @@
 
 <script>
 import TeamComponent from '../components/TeamComponent.vue';
+import ReviewsComponentVue from '@/components/ReviewsComponent.vue';
 
 export default {
     components: {
-        TeamComponent
+        TeamComponent,
+        ReviewsComponentVue
     }
 }
 </script>
