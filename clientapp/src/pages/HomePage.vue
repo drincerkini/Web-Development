@@ -1,23 +1,31 @@
 <template>
-    <header class="header-area overlay">
 
 	<CaruselComponent />
 	
-</header>
+
 
 <main>
-    <div class="banner">
-		<div class="container">
-			<h1>Bootstrap 4 Navbar</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum lectus et tempor molestie.</p>
-			<a href="#content" class="button button-primary">Learn More</a>
-		</div>
-	</div>
+		
     <br />
     <br />
     
+    <NewsComponent />
 
-	<section id="content" class="content">
+    <!-- <h2 class="page-header">Custom content</h2>
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail material_thumbnail">
+					<img src="" alt="Thumbnail label" />
+					<div class="caption material_caption">
+						<h3>Thumbnail label</h3>
+						<p>Nulla consequat massa quis enim. Donec pede justo</p>
+						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+					</div>
+				</div>
+			</div>
+    </div> -->
+
+	<!-- <section id="content" class="content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
@@ -31,15 +39,18 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 </main>
 </template>
 
 <script>
 import CaruselComponent from '@/components/CaruselComponent.vue';
+import NewsComponent from '@/components/NewsComponent.vue';
+
 export default {
     components: {
-        CaruselComponent
+      CaruselComponent,
+      NewsComponent
     }
 }
 </script>

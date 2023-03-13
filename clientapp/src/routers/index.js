@@ -10,6 +10,7 @@ import ServicePage from "../pages/service/ServicePage.vue";
 import CreateServicePage from "../pages/service/CreateServicePage.vue";
 import AdminDashboard from "../pages/AdminDashboard.vue"
 import CreateTeamPage from '../pages/team/CreateTeamPage.vue'
+import CreateNews from '../pages/news/CreateNews.vue'
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -69,6 +70,11 @@ const routes = [
     path: "/create-team",
     name: "create-team",
     component: CreateTeamPage,
+  },
+  {
+    path: "/create-news",
+    name: "create-news",
+    component: CreateNews,
   },
   {
     path: "/admin",

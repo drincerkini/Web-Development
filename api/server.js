@@ -13,6 +13,7 @@ import productsRouter from "./routes/productsRouter";
 import multer from "multer";
 import serviceRouter from './routes/serviceRouter';
 import teamRouter from './routes/teamRouter';
+import newsRouter from './routes/newsRouter';
 
 
 
@@ -55,6 +56,9 @@ mongoose
     app.use("/services", upload.single("image"), serviceRouter);
 
     app.use("/teams", upload.single("image"), teamRouter);
+
+    app.use("/news", upload.single("image"), newsRouter);
+
 
 
     app.get("*", (req, res) => {
