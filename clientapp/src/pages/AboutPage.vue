@@ -4,10 +4,6 @@
     <br />
 
 
-
-
-
-
 <section>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
@@ -54,7 +50,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item">
-                    <img src="../../public/img/service2.jpg" alt="item">
+                    <img src="" alt="item">
                 <div class="carousel-caption">
                 </div>
                 </div>
@@ -89,7 +85,7 @@
 		<div class="media material_media">
 			<div class="media-left">
 				<a href="#">
-					<img class="media-object material_media_object" data-src="holder.js/64x64" alt="64x64" src="../../public/uploads/image-1678656321621.jpeg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+					<img class="media-object material_media_object" data-src="holder.js/64x64" alt="64x64" src="" data-holder-rendered="true" style="width: 64px; height: 64px;">
 				</a>
 			</div>
 			<div class="media-body material_media_body">
@@ -105,7 +101,7 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail material_thumbnail">
-					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<img src="" alt="Thumbnail label" />
 					<div class="caption material_caption">
 						<h3>Thumbnail label</h3>
 						<p>Nulla consequat massa quis enim. Donec pede justo</p>
@@ -116,7 +112,7 @@
         
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail material_thumbnail">
-					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<img src="" alt="Thumbnail label" />
 					<div class="caption material_caption">
 						<h3>Thumbnail label</h3>
 						<p>Nulla consequat massa quis enim. Donec pede justo</p>
@@ -126,7 +122,7 @@
 			</div>
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail material_thumbnail">
-					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<img src="" alt="Thumbnail label" />
 					<div class="caption material_caption">
 						<h3>Thumbnail label</h3>
 						<p>Nulla consequat massa quis enim. Donec pede justo</p>
@@ -136,7 +132,7 @@
 			</div>
             <div class="col-sm-6 col-md-4">
 				<div class="thumbnail material_thumbnail">
-					<img src="../../public/uploads/image-1678459145363.jpeg" alt="Thumbnail label" />
+					<img src="" alt="Thumbnail label" />
 					<div class="caption material_caption">
 						<h3>Thumbnail label</h3>
 						<p>Nulla consequat massa quis enim. Donec pede justo</p>
@@ -148,9 +144,21 @@
         </div>
 </div>                    
 
+<TeamComponent />
+
 
 </section>
 </template>
+
+<script>
+import TeamComponent from '../components/TeamComponent.vue';
+
+export default {
+    components: {
+        TeamComponent
+    }
+}
+</script>
 
 
 <style scoped>

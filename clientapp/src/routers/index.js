@@ -5,15 +5,11 @@ import CreateProduct from "../pages/product/CreatePage.vue";
 import EditProduct from "../pages/product/EditPage.vue";
 import Register from "../pages/RegisterPage.vue";
 import Login from "../pages/LoginPage.vue";
-import ImagePage from "../pages/imagePage.vue";
-import ItemsPage from "../pages/ItemPage.vue";
-import ItemList from "../pages/ItemLists.vue";
-import WomanPage from "../pages/woman/WomanPage.vue";
-import CreateWomanPage from "../pages/woman/WomanCreatePage.vue";
 import ContactPage from "../pages/ContactPage.vue";
 import ServicePage from "../pages/service/ServicePage.vue";
 import CreateServicePage from "../pages/service/CreateServicePage.vue";
 import AdminDashboard from "../pages/AdminDashboard.vue"
+import CreateTeamPage from '../pages/team/CreateTeamPage.vue'
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -55,31 +51,6 @@ const routes = [
     component: Login,
   },
   {
-    path: "/image",
-    name: "image",
-    component: ImagePage,
-  },
-  {
-    path: "/items",
-    name: "items",
-    component: ItemsPage,
-  },
-  {
-    path: "/list-item",
-    name: "list-item",
-    component: ItemList,
-  },
-  {
-    path: "/womanproduct",
-    name: "womanproduct",
-    component: WomanPage,
-  },
-  {
-    path: "/create-womanprod",
-    name: "create-womanprod",
-    component: CreateWomanPage,
-  },
-  {
     path: "/contact",
     name: "contact",
     component: ContactPage,
@@ -93,6 +64,11 @@ const routes = [
     path: "/create-service",
     name: "create-service",
     component: CreateServicePage,
+  },
+  {
+    path: "/create-team",
+    name: "create-team",
+    component: CreateTeamPage,
   },
   {
     path: "/admin",

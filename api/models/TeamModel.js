@@ -1,10 +1,9 @@
 import mongoose, { mongo } from "mongoose";
 
 const schema = new mongoose.Schema({
-    title: String,
-    description: String,
-    price: Number,
-    category: String,
+    name: String,
+    surname: String,
+    position: String,
     image: {
         filename: String,
         mimetype: String,
@@ -17,9 +16,7 @@ const schema = new mongoose.Schema({
     }
 });
 
-const model = mongoose.model('products', schema);
-
-
+const model = mongoose.model('teams', schema);
 
 
 export default model;

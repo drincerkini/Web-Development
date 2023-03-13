@@ -61,11 +61,9 @@ export default {
         { path: "/", name: "Home" },
         { path: "/about", name: "About" },
         { path: "/products", name: "Products" },
-        { path: "/womanproduct", name: "Woman" },
-        { path: "/contact", name: "Contact us" },
+        { path: "/services", name: "Services" },
+        { path: "/contact", name: "Contact" },
         { path: "/admin", name: "Dashboard" }
-
-
       ],
     }
   }
