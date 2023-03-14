@@ -12,6 +12,7 @@ import AdminDashboard from "../pages/AdminDashboard.vue"
 import CreateTeamPage from '../pages/team/CreateTeamPage.vue'
 import CreateNews from '../pages/news/CreateNews.vue'
 import CreateReviewsPage from '../pages/reviews/CreateReviewsPage.vue'
+import ContactList from '../pages/contact/ContactList.vue'
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -81,6 +82,11 @@ const routes = [
     path: "/create-reviews",
     name: "create-reviews",
     component: CreateReviewsPage,
+  },
+  {
+    path: "/contact-list",
+    name: "contact-list",
+    component: ContactList,
   },
   {
     path: "/admin",

@@ -5,6 +5,7 @@ import userModule from "./modules/userModule";
 import teamModule from './modules/teamModule'
 import newsModule from "./modules/newsModule";
 import reviewsModule from "./modules/reviewsModule";
+import contactModule from "./modules/contactModule";
 
 const store = createStore({
   modules: {
@@ -13,7 +14,8 @@ const store = createStore({
     userModule,
     teamModule,
     newsModule,
-    reviewsModule
+    reviewsModule,
+    contactModule
   },
 });
 

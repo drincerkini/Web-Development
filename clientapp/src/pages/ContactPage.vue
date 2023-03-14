@@ -45,40 +45,40 @@
             </div>
     
             <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
-                <form action="#" class="contact-form form-validate" >
+                <form @submit.prevent="handleAddNews" class="contact-form form-validate" >
                     <div class="row">
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label class="required-field" for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Wendy">
+                                <input type="text" class="form-control" id="name" v-model="this.contact.name" placeholder="Wendy">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Appleseed">
+                                <input type="text" class="form-control" id="surname" v-model="this.contact.surname" placeholder="Appleseed">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label class="required-field" for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="wendy.apple@seed.com">
+                                <input type="text" class="form-control" id="email" v-model="this.contact.email" placeholder="wendy.apple@seed.com">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="(021)-454-545">
+                                <input type="tel" class="form-control" id="phone" v-model="this.contact.phone" placeholder="(021)-454-545">
                             </div>
                         </div>
     
                         <div class="col-sm-12 mb-3">
                             <div class="form-group">
                                 <label class="required-field" for="message">How can we help?</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Hi there, I would like to....."></textarea>
+                                <textarea class="form-control" id="description" v-model="this.contact.description" rows="4" placeholder="Hi there, I would like to....."></textarea>
                             </div>
                         </div>
     
@@ -101,7 +101,41 @@
 
 </template>
 
+<script>
 
+export default {
+    data() {
+        return {
+            contact: {
+                name: '',
+                surname: '',
+                email: '',
+                phone: '',
+                description: ''
+            }
+            
+        }
+    },
+
+    methods: {
+        handleImageChange() {
+            this.image = this.$refs.imageInput.files[0];
+        },
+        async handleAddNews(){
+            try{
+                await this.$store.dispatch('contactModule/addContact', this.contact);
+                this.$router.push('/')
+            }catch(err){
+                console.log('error ---- ', err.message);
+            }
+            
+        }
+    }
+}
+
+
+
+</script>
 
 
 <style scoped>
