@@ -3,56 +3,38 @@
 <br />
 <br />
 
-<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-    <div class="shop-default shop-cards shop-tech">
-        <div class="row">
-            <div class="col-md-6" v-for="product in this.products" :key="product._id">
-                <CardComponent 
-                    :title = "`${product.title}`"
-                    :description = "`${product.description}`"
-                    :price = product.price
-                    :image = product.image.filename
-                />
-                <br />
-                <br />
-                <br />
+<section id="about-section" class="pt-5 pb-5">
+  <div class="container wrapabout">
+
+
+        <div class="container-fluid">
+            <div class="container text-center">
+                <h1>Thank you.</h1>
+                <p class="lead w-lg-50 mx-auto">Your order has been placed successfully.</p>
+                <p class="w-lg-50 mx-auto">Your order number is <a href="#">9237427634826</a>. We will immediatelly process your and it will be delivered in 2 - 5 business days.</p>
             </div>
-            
-        </div>
-    </div>
-    
-      
-</div> -->
-
-
-<div class="container-fluid">
-    <div class="container text-center">
-        <h1>Thank you.</h1>
-        <p class="lead w-lg-50 mx-auto">Your order has been placed successfully.</p>
-        <p class="w-lg-50 mx-auto">Your order number is <a href="#">9237427634826</a>. We will immediatelly process your and it will be delivered in 2 - 5 business days.</p>
-    </div>
-    <div class="container">
-        <h2 class="h5 mb-5 text-center">You may also like these products</h2>
-        <div class="row">
-            <div class="col-lg-3" v-for="product in this.products" :key="product._id">
-                <div class="card text-center mb-3">
-                    <div class="py-5 px-4">
-                        <img :src="`/uploads/${product.image.filename}`" alt="" class="img-fluid mb-4" />
-                        <h3 class="fs-6 text-truncate"><a href="#" class="stretched-link text-reset">{{product.title}}</a></h3>
-                        <span class="text-success">$799.00</span> <del class="text-muted">$650.83</del>
-                    </div>
-                    <div class="bg-danger text-white small position-absolute end-0 top-0 px-2 py-2 lh-1 text-center">
-                        <span class="d-block">10%</span>
-                        <span class="d-block">OFF</span>
-                    </div>
+            <div class="container">
+                <h2 class="h5 mb-5 text-center">You may also like these products</h2>
+                <div class="row">
+                    <div class="col-lg-3" v-for="product in this.products" :key="product._id">
+                        <div class="card text-center mb-3">
+                            <div class="py-5 px-4">
+                                <img :src="`/uploads/${product.image.filename}`" alt="" class="img-fluid mb-4" />
+                                <h3 class="fs-6 text-truncate"><a href="#" class="stretched-link text-reset">{{product.title}}</a></h3>
+                                <span class="text-success">$799.00</span> <del class="text-muted">$650.83</del>
+                            </div>
+                            <div class="bg-danger text-white small position-absolute end-0 top-0 px-2 py-2 lh-1 text-center">
+                                <span class="d-block">10%</span>
+                                <span class="d-block">OFF</span>
+                            </div>
+                        </div>
+                    </div>   
+                    
                 </div>
-            </div>   
-            
+            </div>
         </div>
     </div>
-</div>
-
+</section>
 </template>
 
 <script>

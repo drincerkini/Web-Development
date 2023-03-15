@@ -1,67 +1,45 @@
 <template>
 
-	<CaruselComponent />
-	
+<section id="about-section" class="pt-5 pb-5">
+  <div class="container wrapabout">
 
+    <CaruselComponent />
+      
 
-<main>
-		
     <br />
     <br />
+    <h1 class="page-header text-center">Latest News</h1>
+
+    <br />
+    <br />
+    <br />
+
     
     <div class="container">
-    <div class="row no-gutters">
-      <div class="col-xl-6 col-12 mb-5 mb-xl-0" v-for="info in this.news" :key="info._id">
-        <div class="media media-news">
-          <div class="media-img">
-            <img :src="`/uploads/${info.image.filename}`" alt="Generic placeholder image">
+        <div class="row no-gutters">
+          <div class="col-xl-6 col-12 mb-5 mb-xl-0" v-for="info in this.news" :key="info._id">
+            <div class="media media-news">
+              <div class="media-img">
+                <img :src="`/uploads/${info.image.filename}`" alt="Generic placeholder image">
+              </div>
+              <div class="media-body">
+                <span class="media-date">25 july 2017</span>
+                <h5 class="mt-0 sep">Finibus Bonorum Malor.</h5>
+                <p>Lorem ipsum dolor amet consectetur adip sicing elit sed eiusm tempor incididunt ut labore dolore.</p>
+                <a href="blog-post-right-sidebar.html" class="btn btn-transparent">View More</a>
+              </div>
+            </div>
+            <br />
+          <br />
+          <br />
           </div>
-          <div class="media-body">
-            <span class="media-date">25 july 2017</span>
-            <h5 class="mt-0 sep">Finibus Bonorum Malor.</h5>
-            <p>Lorem ipsum dolor amet consectetur adip sicing elit sed eiusm tempor incididunt ut labore dolore.</p>
-            <a href="blog-post-right-sidebar.html" class="btn btn-transparent">View More</a>
-          </div>
+
+          
         </div>
-        <br />
-      <br />
-      <br />
-      </div>
-
-      
     </div>
-</div>
+  </div>
+</section>
 
-    <!-- <h2 class="page-header">Custom content</h2>
-		<div class="row">
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail material_thumbnail">
-					<img src="" alt="Thumbnail label" />
-					<div class="caption material_caption">
-						<h3>Thumbnail label</h3>
-						<p>Nulla consequat massa quis enim. Donec pede justo</p>
-						<p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-					</div>
-				</div>
-			</div>
-    </div> -->
-
-	<!-- <section id="content" class="content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque, iaculis porta nulla. </p>
-				</div>
-				<div class="col-md-4">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque, iaculis porta nulla. </p>
-				</div>
-				<div class="col-md-4">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque, iaculis porta nulla. </p>
-				</div>
-			</div>
-		</div>
-	</section> -->
-</main>
 </template>
 
 <script>
@@ -69,28 +47,27 @@ import CaruselComponent from '@/components/CaruselComponent.vue';
 import { mapState } from 'vuex';
 
 export default {
-    components: {
-      CaruselComponent,
-    },
+  components: {
+    CaruselComponent,
+  },
 
-    computed : {
-            //   ...mapState(['products']),
-              ...mapState('newsModule', ['news'])
-            },
-            created() {
-              this.$store.dispatch('newsModule/getNews');
-            },
-            methods: {
-              async handleDelete(teamId){
-                if (window.confirm("Do you really want to delete?")) {
-                  try {
-                    this.$store.dispatch('deleteNews', teamId);
-                  }catch(err) {
-                    console.log("erro", err.message);
-                  }
-                }
-              }
-            }
+  computed : {
+    ...mapState('newsModule', ['news'])
+  },
+  created() {
+    this.$store.dispatch('newsModule/getNews');
+  },
+  methods: {
+    async handleDelete(teamId){
+      if (window.confirm("Do you really want to delete?")) {
+        try {
+          this.$store.dispatch('deleteNews', teamId);
+        }catch(err) {
+          console.log("erro", err.message);
+        }
+      }
+    }
+  }
 }
 </script>
 
