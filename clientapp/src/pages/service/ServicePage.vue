@@ -2,34 +2,25 @@
     <br />
     <br />
     <br />
-    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <div class="container">
-    
 
-        <h2 class="page-header">Custom content</h2>
-		<div class="row">
-			<div class="col-sm-6 col-md-4" v-for="service in this.services" :key="service._id">
-                <div class="thumbnail material_thumbnail">
-                    <div class="item-img-wrap ">
-                        <img :src="'/uploads/' + service.image.filename"
-                        class="img-responsive"
-                        alt="Thumbnail label" />
-                    </div>
-                    <div class="caption material_caption">
-                        <h3>{{ service.title }}</h3>
-                        <p>Nulla consequat massa quis enim. Donec pede justo</p>
-                        <p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
-                    </div>
-                </div>
-                <br />
-                <br />
-                <br />
-                </div>
 
-        </div>
-    </div> 
+    <div class="container bootstrap snipets"  >
+   <h1 class="text-center text-muted">Servieces</h1>
+   <div class="row flow-offset-1" >
+     <div class="col-xs-6 col-md-4" v-for="service in this.services" :key="service._id">
+       <div class="product tumbnail thumbnail-3"><a><img :src="`/uploads/${service.image.filename}`" alt=""></a>
+         <div class="caption">
+           <h6><a href="#">{{ service.title }}</a></h6><span class="price">
+             <del>$24.99</del></span><span class="price sale">$12.49</span>
+         </div>
+       </div>
+     </div>
+
      
+   </div>
+ </div>
+
+
 
 
 
@@ -69,52 +60,193 @@
     
 <style scoped>
 
-
-
-.item-img-wrap {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
+ody{margin-top:20px;
+background:#ddd;
 }
 
-.item-img-wrap img {
-    -moz-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    transition: all 200ms linear;
-    width: 100%;
+
+/*
+* @subsection Shop
+*/
+.product {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/***********************Custom content***********************/
-.material_thumbnail {
-  border-radius: 0;
-  padding: 0;
-  box-shadow: 0 6px 13px rgba(0, 0, 0, 0.12);
-  -webkit-transition: box-shadow 0.3s ease-in 0s;
-  transition: box-shadow 0.3s ease-in 0s;
+.product .caption {
+  margin-top: 15px;
 }
-.material_thumbnail .material_caption {
-  padding: 10px 20px;
+
+.product .caption h6 {
+  color: #455a64;
 }
-.material_thumbnail .material_btn {
+
+.product .caption .price + .price {
+  margin-left: 15px;
+}
+
+.product.tumbnail {
+  box-shadow: 0 5px 25px 0 transparent;
+  transition: 0.3s linear;
+  padding-top: 0;
+}
+
+.product.tumbnail img:hover {
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.single-product span {
+  display: inline-block;
+}
+
+.single-product .rating .fa-star, .single-product .rating .fa-star-o {
   font-size: 16px;
-  color: #ffab40;
-  text-decoration: none;
-  padding: 10px 0;
-  border: none;
-  -webkit-transition: color 0.4s ease-out 0s;
-  transition: color 0.4s ease-out 0s;
-}
-.material_thumbnail .material_btn:hover,
-.material_thumbnail .material_btn:active,
-.material_thumbnail .material_btn:focus {
-  background: none;
-  box-shadow: none;
-}
-.material_thumbnail:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+  color: #f7d4a0;
+  margin-left: 2px;
 }
 
-    
+.single-product .rating + * {
+  margin-left: 15px;
+}
+
+.single-product h1.h1-variant-2 {
+  margin-bottom: 20px;
+}
+
+.single-product .caption:before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.single-product .caption span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.single-product .caption .price {
+  font-weight: 400;
+}
+
+.single-product .caption .price.sale {
+  color: #e75854;
+  font-size: 33px;
+}
+
+.single-product .caption * + .price {
+  margin-left: 10.8%;
+}
+
+@media (max-width: 1199px) {
+  .single-product .caption * + .price {
+    margin-left: 7.8%;
+  }
+}
+
+.single-product .caption * + .quantity {
+  margin-left: 26px;
+}
+
+.single-product .caption .info-list {
+  border-bottom: 1px solid #f3f3ed;
+  border-top: 1px solid #f3f3ed;
+  font-family: Montserrat, sans-serif;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  text-align: left;
+}
+
+.single-product .caption .info-list dt, .single-product .caption .info-list dd {
+  display: inline-block;
+  line-height: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.single-product .caption .info-list dt {
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  color: #a7b0b4;
+  width: 35%;
+  text-transform: uppercase;
+}
+
+.single-product .caption .info-list dd {
+  font-size: 15px;
+  color: #565452;
+  width: 62.5%;
+}
+
+.single-product .caption .share span.small {
+  margin-top: 9px;
+}
+
+@media (max-width: 991px) {
+  .single-product .caption .share span.small {
+    display: block;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .single-product .table-mobile tr {
+    padding-top: 0;
+  }
+  .single-product .table-mobile tr:before {
+    display: none;
+  }
+}
+
+.price {
+  display: inline-block;
+  font-size: 15px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #2b2f3e;
+}
+
+.price.sale {
+  color: #e75854;
+}
+
+.price del {
+  color: #b0bec5;
+}
+
+.quantity {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  background: #eceff1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 82px;
+  height: auto;
+  display: inline-block;
+}
+
+.quantity span {
+  display: inline-block;
+}
+
+.quantity .num {
+  width: 26px;
+}
+
+.quantity [class*='fa-'] {
+  padding-top: 4px;
+  width: 22px;
+  padding-bottom: 4px;
+  color: #b0bec5;
+  cursor: pointer;
+}
+
+.quantity [class*='fa-']:hover {
+  color: #455a64;
+}
 
 </style>

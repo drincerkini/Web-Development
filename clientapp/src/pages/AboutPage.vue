@@ -50,7 +50,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item">
-                    <img src="" alt="item">
+                    <img src="../../public/img/service2.jpg" alt="item">
                 <div class="carousel-caption">
                 </div>
                 </div>
@@ -65,6 +65,10 @@
             </div>    
             <hr>
         </div> 
+        
+        <br />
+        <br />
+        <br />
 
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="well">

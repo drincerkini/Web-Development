@@ -21,7 +21,7 @@
         <a href="#" @click.prevent="handleLogOut" type="button" class="nav-item nav-link">Logout</a>
       </div>
       <div v-else id="main-nav" class="collapse navbar-collapse">
-        <router-link :to="{ name: 'login' }" class="nav-item nav-link">Login</router-link>
+        <router-link :to="{ name: 'login' }" class="nav-item nav-link ">Login</router-link>
         <router-link to="/register" class="nav-item nav-link">Register</router-link>
       </div>
     </nav>
