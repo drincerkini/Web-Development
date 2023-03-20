@@ -11,7 +11,7 @@
     </div>
     <div>
       <a href="#" class="btn btn-success btn-sm">
-        <router-link to="/create-service" class="text-white">ADD SERVICE</router-link>
+        <router-link to="/create-product" class="text-white">ADD PRODUCT</router-link>
       </a>
       <a href="#" class="btn btn-default icon-btn md-btn-flat btn-sm ml-1">
         <i class="ion ion-md-mail"></i>
@@ -38,7 +38,8 @@
                             <div class="py-5 px-4">
                                 <img :src="`/uploads/${product.image.filename}`" alt="" class="img-fluid mb-4" />
                                 <h3 class="fs-6 text-truncate"><a href="#" class="stretched-link text-reset">{{product.title}}</a></h3>
-                                <span class="text-success">$799.00</span> <del class="text-muted">$650.83</del>
+                                <span class="text-success">${{product.price}}</span>
+                                <p>{{ product.description }}</p>
                             </div>
                             <div class="bg-danger text-white small position-absolute end-0 top-0 px-2 py-2 lh-1 text-center">
                                 <span class="d-block">10%</span>
