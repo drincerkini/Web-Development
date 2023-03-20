@@ -1,52 +1,58 @@
 <template>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey">
-    <section id="contact" class="gray-bg padding-top-bottom">
-    	<div class="container bootstrap snippets bootdey">
-            <div class="row">
-                <form id="Highlighted-form" class="col-sm-6 col-sm-offset-3" @submit.prevent="handleAddProduct">
-                    <div class="form-group">
-                        <label class="control-label" for="contact-name">Name</label>
-                        <div class="controls">
-                            <input id="title" v-model="this.title" type="text" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<div class="container mt-5 mb-5">
+    <div class="contact__wrapper shadow-lg mt-n9">
+        <div class="row no-gutters">
+            <h3 class="text-center mt-4">Add Product</h3>
+            <div class="contact-form__wrapper p-5 order-lg-1">
+                <form class="contact-form form-validate" @submit.prevent="handleAddProduct">
+                    
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label class="required-field" for="firstName">Title</label>
+                                <input id="title" v-model="this.title" type="text" class="form-control" placeholder="Title"/>
+                            </div>
                         </div>
-                    </div><!-- End name input -->
-                    <div class="form-group">
-                        <label class="control-label" for="contact-name">Description</label>
-                        <div class="controls">
-                            <input id="title" v-model="this.description" type="text" />
+    
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label for="lastName">Price</label>
+                                <input id="price" v-model="this.price" type="number" class="form-control" placeholder="Price €"/>
+                            </div>
                         </div>
-                    </div><!-- End name input -->
-                    <div class="form-group">
-                        <label class="control-label" for="contact-mail">Price</label>
-                        <div class=" controls">
-                            <input id="description" v-model="this.price" type="text" />
+    
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label class="required-field" for="email">Category</label>
+                                <input type="text" class="form-control" v-model="this.category" placeholder="Category">
+                            </div>
                         </div>
-                    </div><!-- End email input -->
-                    <div class="form-group">
-                        <label class="control-label" for="contact-mail">Cat</label>
-                        <div class=" controls">
-                            <input id="description" v-model="this.category" type="text" />
+    
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label for="phone">Select Image</label>
+                                <input class="form-control" id="image" ref="imageInput" type="file" @change="handleImageChange" >
+                            </div>
                         </div>
-                    </div><!-- End email input -->
-                    <div class="form-group">
-                        <label class="control-label" for="contact-mail">Cat</label>
-                        <div class=" controls">
-                            <input id="image" ref="imageInput" type="file" @change="handleImageChange" />
+    
+                        <div class="col-sm-12 mb-3">
+                            <div class="form-group">
+                                <label class="required-field" for="message">Description</label>
+                                <textarea class="form-control" id="description" v-model="this.description" rows="4" placeholder="Describe the product....."></textarea>
+                            </div>
                         </div>
-                    </div><!-- End email input -->
-                    <div class="form-group">
-                        <label class="control-label" for="contact-message">Message</label>
-                        <div class="controls">
-                            <textarea id="contact-message" name="comments" placeholder="Your message" class="form-control requiredField Highlighted-label" rows="6" ></textarea>
+    
+                        <div class="d-grid gap-2 col-6 mx-auto ">
+                            <button type="submit" name="submit" class="btn btn-success">ADD PRODUCT</button>
                         </div>
-                    </div><!-- End textarea -->
-                        <button name="submit" type="submit" class="btn btn-info btn-block" >Send Message</button>
-                </form><!-- End Highlighted-form -->
-			</div>	
-		</div>	
-	</section>
-</div>                    
+    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </template>
 
