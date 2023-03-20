@@ -9,6 +9,12 @@ const productModule = {
         products: [],
     },
 
+    getters: {
+        numberOfProducts(state){
+            return state.products.length;
+        }
+    },
+
 
     mutations: {
         getProducts(state, products){

@@ -1,17 +1,34 @@
 <template>
-<br />
-<br />
-<br />
+<div class="bg-white">
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center py-4">
+    <div>
+      <a href="#" class="d-inline-block text-dark">
+        <span class="text-muted">Number of products  </span>
+        <strong>{{ this.numberOfProducts }}</strong>
+      </a>
+    </div>
+    <div>
+      <a href="#" class="btn btn-success btn-sm">
+        <router-link to="/create-service" class="text-white">ADD SERVICE</router-link>
+      </a>
+      <a href="#" class="btn btn-default icon-btn md-btn-flat btn-sm ml-1">
+        <i class="ion ion-md-mail"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<hr class="m-0">
+
+</div>
 
 <section id="about-section" class="pt-5 pb-5">
   <div class="container wrapabout">
 
-
         <div class="container-fluid">
             <div class="container text-center">
-                <h1>Thank you.</h1>
-                <p class="lead w-lg-50 mx-auto">Your order has been placed successfully.</p>
-                <p class="w-lg-50 mx-auto">Your order number is <a href="#">9237427634826</a>. We will immediatelly process your and it will be delivered in 2 - 5 business days.</p>
+                <h1>Our Products.</h1>
             </div>
             <div class="container">
                 <h2 class="h5 mb-5 text-center">You may also like these products</h2>
@@ -38,7 +55,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
     components: {
@@ -46,7 +63,8 @@ export default {
 
     computed : {
     //   ...mapState(['products']),
-      ...mapState('productModule', ['products'])
+      ...mapState('productModule', ['products']),
+      ...mapGetters('productModule', ['numberOfProducts'])
     },
     created() {
       this.$store.dispatch('productModule/getProducts');

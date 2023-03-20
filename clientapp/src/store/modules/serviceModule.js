@@ -9,6 +9,12 @@ const serviceModule = {
         services: [],
     },
 
+    getters: {
+        numberOfServices(state){
+            return state.services.length;
+        }
+    },
+
 
     mutations: {
         GET_SERVICE(state, service){
