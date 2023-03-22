@@ -20,8 +20,8 @@
         </div>
         <div class="caption material_caption">
           <h3>{{ info.title }}</h3>
-          <p>{{info.description}}</p>
-          <p><a href="#" class="btn btn-default material_btn" role="button">Link</a></p>
+          <p>{{}}</p>
+          <p><a href="#" class="btn btn-default material_btn" role="button">{{ info.createdAt }}</a></p>
         </div>
       </div>
 

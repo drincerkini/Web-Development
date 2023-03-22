@@ -23,9 +23,9 @@
                 <img :src="`/uploads/${info.image.filename}`" alt="Generic placeholder image">
               </div>
               <div class="media-body">
-                <span class="media-date">25 july 2017</span>
-                <h5 class="mt-0 sep">Finibus Bonorum Malor.</h5>
-                <p>Lorem ipsum dolor amet consectetur adip sicing elit sed eiusm tempor incididunt ut labore dolore.</p>
+                <span class="media-date">{{info.createdAt}}</span>
+                <h5 class="mt-0 sep">{{info.title}}</h5>
+                <p>{{info.description}}</p>
                 <a href="blog-post-right-sidebar.html" class="btn btn-transparent">View More</a>
               </div>
             </div>
