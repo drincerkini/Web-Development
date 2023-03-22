@@ -13,7 +13,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item">
-                    <img src="../../../public/img/service2.jpg" alt="item">
+                    <img src="../../../public/img/abouttpage.webp" alt="item">
                 <div class="carousel-caption">
                 </div>
                 </div>
@@ -35,12 +35,22 @@
 
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="well">
-                <h2>ABOUT PROJECT</h2>
-                <p class="">Here goes sub-title. Write few words about your awesome project</p>
+                <h2>ABOUT SERVICES</h2>
+                <p class="">Some of the services offered at our medical aesthetic clinic includes:
+
+</p>
             </div>
-                <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
+            
+                    <p>Botox and dermal filler injections for facial rejuvenation</p>
+                    <p>Laser treatments for hair removal, skin resurfacing, and tattoo removal</p>
+                    <p>Chemical peels and microdermabrasion for skin exfoliation and rejuvenation</p>
+                    <p>CoolSculpting and other non-surgical body contouring treatments</p>
+                    <p>Platelet-rich plasma (PRP) therapy for hair restoration and skin rejuvenation</p>
+                    <p>Medical-grade skincare products and treatments for various skin concerns, such as acne, wrinkles, and hyperpigmentation.</p>
+                    <p>Medical aesthetic clinics are typically focused on improving a patient's appearance and self-confidence, rather than treating medical conditions. </p>
+                    
+.
+                
             </div>
         </div>
 

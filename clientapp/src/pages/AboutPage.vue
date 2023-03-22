@@ -1,9 +1,5 @@
 <template>
 
-
-
-                        
-
 <AboutPoroductsComponent />
 <AboutServicesComponent />
 <ReviewsComponentVue />
