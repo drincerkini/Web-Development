@@ -8,6 +8,11 @@ const newsModule = {
     state: {
         news: [],
     },
+    getters: {
+        numberOfNews(state) {
+          return state.news.length;
+        },
+      },
 
 
     mutations: {

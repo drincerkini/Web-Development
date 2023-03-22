@@ -63,13 +63,15 @@
                 />
               </svg>
               <hr />
+            </router-link>
+            <router-link to="services" class="text-white">
               <p class="h2 text-thin">{{ this.numberOfServices }}</p>
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
                   {{ this.numberOfServices }}</span
                 >
-                Unapproved comments</small
+                Services</small
               >
             </router-link>
           </div>
@@ -78,8 +80,8 @@
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="panel panel-primary panel-colorful">
           <div class="panel-body text-center">
-            <router-link to="/create-service" class="text-white">
-              <p class="text-uppercase mar-btm text-sm">ADD SERVICE</p>
+            <router-link to="create-product" class="text-white">
+              <p class="text-uppercase mar-btm text-sm">ADD PRODUCT</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="90"
@@ -96,13 +98,15 @@
                 />
               </svg>
               <hr />
-              <p class="h2 text-thin">{{ this.numberOfServices }}</p>
+            </router-link>
+            <router-link to="products" class="text-white">
+              <p class="h2 text-thin">{{ this.numberOfProducts }}</p>
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
-                  {{ this.numberOfServices }}</span
+                  {{ this.numberOfProducts }}</span
                 >
-                Unapproved comments</small
+                Products</small
               >
             </router-link>
           </div>
@@ -111,8 +115,8 @@
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="panel panel-info panel-colorful">
           <div class="panel-body text-center">
-            <router-link to="/create-service" class="text-white">
-              <p class="text-uppercase mar-btm text-sm">ADD SERVICE</p>
+            <router-link to="/create-news" class="text-white">
+              <p class="text-uppercase mar-btm text-sm">ADD NEWS</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="90"
@@ -129,18 +133,51 @@
                 />
               </svg>
               <hr />
-              <p class="h2 text-thin">{{ this.numberOfServices }}</p>
+              <p class="h2 text-thin">{{ this.numberOfNews }}</p>
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
-                  {{ this.numberOfServices }}</span
+                  {{ this.numberOfNews }}</span
                 >
-                Unapproved comments</small
+                News</small
               >
             </router-link>
           </div>
         </div>
       </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="panel panel-info panel-colorful">
+          <div class="panel-body text-center">
+            <router-link to="/create-reviews" class="text-white">
+              <p class="text-uppercase mar-btm text-sm">ADD REVIEWS</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="90"
+                height="90"
+                fill="currentColor"
+                class="bi bi-clipboard2-plus-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"
+                />
+                <path
+                  d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5ZM8.5 6.5V8H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5a.5.5 0 0 1 1 0Z"
+                />
+              </svg>
+              <hr />
+              <p class="h2 text-thin">{{ this.numberOfNews }}</p>
+              <small
+                ><span class="text-semibold"
+                  ><i class="fa fa-unlock-alt fa-fw"></i>
+                  {{ this.numberOfNews }}</span
+                >
+                News</small
+              >
+            </router-link>
+          </div>
+        </div>
+      </div>ß
     </div>
   </div>
 
@@ -230,10 +267,16 @@ export default {
     ...mapGetters("serviceModule", ["numberOfServices"]),
     ...mapState("contactModule", ["contacts"]),
     ...mapGetters("contactModule", ["numberOfContacts"]),
+    ...mapState("productModule", ["products"]),
+    ...mapGetters("productModule", ["numberOfProducts"]),
+    ...mapState("newsModule", ["news"]),
+    ...mapGetters("newsModule", ["numberOfNews"]),
   },
   created() {
     this.$store.dispatch("serviceModule/getServices");
     this.$store.dispatch("contactModule/getContact");
+    this.$store.dispatch("productModule/getProducts");
+    this.$store.dispatch("newsModule/getNews");
   },
   methods: {
     async handleDelete(serviceId) {
