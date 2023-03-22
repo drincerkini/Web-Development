@@ -13,9 +13,9 @@
                             <h3>ABOUT US</h3>
                         </div>
                         <p class="description-p text-muted pe-0 pe-lg-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere sequi, quia, est sed dicta aliquid quidem facilis culpa iure perferendis? Dolor ad quia deserunt.
+                            A medical aesthetic clinic is a type of healthcare facility that specializes in providing cosmetic treatments and procedures to improve the appearance and health of a patient's skin and body.
                         </p>
-                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">The goal of medical aesthetic clinics is to help patients achieve their desired cosmetic results while prioritizing their safety and well-being.</p>
                         <div class="sosmed-horizontal pt-3 pb-3">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <figure class="potoaboutwrap">
-                    <img src="../../../public/img/aboutimg.jpg" alt="potoabout" />
+                    <img src="../../../public/img/aboutus.jpeg" alt="potoabout" />
                 </figure>
             </div>
         </div>
