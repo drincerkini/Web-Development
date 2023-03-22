@@ -1,7 +1,7 @@
 
 <template>
-  <header class="header-area overlay">
-    <nav class="navbar navbar-expand-md navbar-dark">
+
+   <!-- <nav class="navbar navbar-expand-md navbar-dark">
       <div class="container">
         <a href="#" class="navbar-brand">DFT</a>
 
@@ -24,8 +24,30 @@
         <router-link :to="{ name: 'login' }" class="nav-item nav-link ">Login</router-link>
         <router-link to="/register" class="nav-item nav-link">Register</router-link>
       </div>
-    </nav>
-  </header>
+    </nav> -->
+
+
+    <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li v-for="route in routes" v-bind:key="route.name">
+          <router-link v-bind:to="route.path" class="nav-item nav-link">{{ route.name }}</router-link>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
 </template>
 
 
@@ -71,7 +93,7 @@ export default {
 </script>
 
 
-<style scoped>
+<!-- <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
@@ -449,4 +471,4 @@ p {
     transform: scaleY(1);
   }
 }
-</style>
+</style> -->
