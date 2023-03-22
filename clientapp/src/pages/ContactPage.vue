@@ -7,6 +7,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <div class="container">
     <div class="contact__wrapper shadow-lg mt-n9">
+       <div>
+        <a href="#" class="d-inline-block text-dark">
+          <span class="text-muted">Number of contacts  </span>
+          <strong>{{ this.numberOfContacts }}</strong>
+        </a>
+      </div>
         <div class="row no-gutters">
             <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
                 <h3 class="color--white mb-5">Get in Touch</h3>
@@ -102,6 +108,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
+
 
 export default {
     data() {
@@ -116,7 +124,14 @@ export default {
             
         }
     },
+        computed : {
+            ...mapState('contactModule', ['contacts']),
+         ...mapGetters('contactModule',['numberOfContacts'])
+         },
 
+          created() {
+            this.$store.dispatch('contactModule/getContact');
+        },
     methods: {
         handleImageChange() {
             this.image = this.$refs.imageInput.files[0];

@@ -8,6 +8,11 @@ const contactModule = {
     state: {
         contacts: [],
     },
+    getters: {
+        numberOfContacts(state){
+            return state.contacts.length;
+        }
+    },
 
 
     mutations: {
