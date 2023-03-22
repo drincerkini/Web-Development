@@ -15,7 +15,6 @@ import CreateReviewsPage from '../pages/reviews/CreateReviewsPage.vue'
 import ContactList from '../pages/contact/ContactList.vue'
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { createRouter, createWebHistory } from 'vue-router';
-import TestPage from '../pages/TestPage.vue';
 
 
 const routes = [
@@ -24,11 +23,7 @@ const routes = [
     name: "home",
     component: Home,
   },
-  {
-    path: "/test",
-    name: "test",
-    component: TestPage,
-  },
+ 
   {
     path: "/about",
     name: "about",
@@ -42,11 +37,17 @@ const routes = [
   {
     path: "/create-product",
     name: "create-product",
+    meta: {
+      isAdmin: true,
+    },
     component: CreateProduct,
   },
   {
     path: "/edit-product",
     name: "edit-product",
+    meta: {
+      isAdmin: true,
+    },
     component: EditProduct,
   },
   {
@@ -72,11 +73,17 @@ const routes = [
   {
     path: "/create-service",
     name: "create-service",
+    meta: {
+      isAdmin: true,
+    },
     component: CreateServicePage,
   },
   {
     path: "/create-team",
     name: "create-team",
+    meta: {
+      isAdmin: true,
+    },
     component: CreateTeamPage,
   },
   {
@@ -92,6 +99,9 @@ const routes = [
   {
     path: "/contact-list",
     name: "contact-list",
+    meta: {
+      isAdmin: true,
+    },
     component: ContactList,
   },
   {
