@@ -15,6 +15,7 @@ import CreateReviewsPage from '../pages/reviews/CreateReviewsPage.vue'
 import ContactList from '../pages/contact/ContactList.vue'
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { createRouter, createWebHistory } from 'vue-router';
+import TestPage from '../pages/TestPage.vue';
 
 
 const routes = [
@@ -22,6 +23,11 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: TestPage,
   },
   {
     path: "/about",
