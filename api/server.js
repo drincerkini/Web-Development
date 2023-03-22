@@ -11,13 +11,11 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import productsRouter from "./routes/productsRouter";
 import multer from "multer";
-import serviceRouter from './routes/serviceRouter';
-import teamRouter from './routes/teamRouter';
-import newsRouter from './routes/newsRouter';
-import reviewsRouter from './routes/ReviewsRouter';
-import contactRouter from './routes/contactRouter';
-
-
+import serviceRouter from "./routes/serviceRouter";
+import teamRouter from "./routes/teamRouter";
+import newsRouter from "./routes/newsRouter";
+import reviewsRouter from "./routes/ReviewsRouter";
+import contactRouter from "./routes/contactRouter";
 
 mongoose
   .connect(`${MONGO_CONECTION_URI}:${MONGO_PORT}/${MONGO_DB_NAME}`)
@@ -25,7 +23,7 @@ mongoose
     console.log(`connected to mongodb on port ${MONGO_PORT}`);
 
     const app = express();
-    app.use(express.static('./uploads'));
+    app.use(express.static("./uploads"));
 
     //body parser library for acepting requests in json format
     app.use(bodyParser.json());
@@ -49,8 +47,6 @@ mongoose
       })
     );
 
-
-
     // API Routes
 
     app.use("/products", upload.single("image"), productsRouter);
@@ -61,17 +57,13 @@ mongoose
 
     app.use("/news", upload.single("image"), newsRouter);
 
-    app.use('/reviews', upload.single("image"), reviewsRouter);
+    app.use("/reviews", reviewsRouter);
 
-    app.use('/contact', contactRouter);
-
-
-
+    app.use("/contact", contactRouter);
 
     app.get("*", (req, res) => {
       res.json({ msg: "Not Found" });
     });
-
 
     //server running port
     app.listen(API_PORT, () => {

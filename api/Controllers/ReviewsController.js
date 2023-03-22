@@ -25,12 +25,6 @@ const ReviewsController = {
         const info = new ReviewsModel({
             client: req.body.client,
             description: req.body.description,
-            image: {
-                filename: req.file.filename,
-                mimetype: req.file.mimetype,
-                size: req.file.size,
-                url: req.file.path,
-            },
         });
         try{
             const newInfo = await info.save();
@@ -47,12 +41,6 @@ const ReviewsController = {
                 {$set : {
                     client: req.body.client,
                     description: req.body.description,
-                    image: {
-                        filename: req.file.filename,
-                        mimetype: req.file.mimetype,
-                        size: req.file.size,
-                        url: req.file.path,
-                    },
                 }}
             )
             const result = updatedInfo.save();
