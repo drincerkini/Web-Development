@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg p-3" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg p-3 mb-0" style="background-color: #e3f2fd;">
       <div class="container-fluid">
         <img src="../../public/img/logo.png" data-holder-rendered="true" style="width: 120px; height: 105px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
