@@ -5,13 +5,11 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
     <div class="container">
+        <div class="text-center mb-2-3 mb-lg-6">
+            <h2 class="h1 mb-5 text-secondary">Contact Us</h2>
+        </div>
         <div class="contact__wrapper shadow-lg mt-n9">
-            <div>
-                <a href="#" class="d-inline-block text-dark">
-                    <span class="text-muted">Number of contacts </span>
-                    <strong>{{ this.numberOfContacts }}</strong>
-                </a>
-            </div>
+            
             <div class="row no-gutters">
                 <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
                     <h3 class="color--white mb-5">Get in Touch</h3>

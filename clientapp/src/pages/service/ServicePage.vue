@@ -1,32 +1,8 @@
 <template>
 
-<div class="bg-white">
-
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center py-4">
-      <div>
-        <a href="#" class="d-inline-block text-dark">
-          <span class="text-muted">Number of services  </span>
-          <strong>{{ this.numberOfServices }}</strong>
-        </a>
-      </div>
-      <div>
-        <a href="#" class="btn btn-success btn-sm">
-          <router-link to="/create-service" class="nav-item nav-link">ADD SERVICE</router-link>
-        </a>
-        <a href="#" class="btn btn-default icon-btn md-btn-flat btn-sm ml-1">
-          <i class="ion ion-md-mail"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-  <hr class="m-0">
-
+<div class="text-center mb-2-3 mb-lg-6">
+    <h2 class="h1 mb-5 text-secondary">Services</h2>
 </div>
-
-
-
-<h1 class="page-header text-center">Our Services</h1>
 <section id="about-section" class="pt-5 pb-5">
   <div class="container wrapabout">
 		<div class="row">
