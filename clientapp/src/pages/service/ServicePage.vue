@@ -1,10 +1,10 @@
 <template>
-
-<div class="text-center mb-2-3 mb-lg-6">
-    <h2 class="h1 mb-5 text-secondary">Services</h2>
-</div>
+    
 <section id="about-section" class="pt-5 pb-5">
   <div class="container wrapabout">
+    <div class="text-center mb-2-3 mb-lg-6">
+      <h2 class="h1 mb-5 text-secondary">Services</h2>
+    </div>
 		<div class="row">
 			<div class="col-sm-6 col-md-4" v-for="service in this.services" :key="service._id">
 				<div class="thumbnail material_thumbnail">

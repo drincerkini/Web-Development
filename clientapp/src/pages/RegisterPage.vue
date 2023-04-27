@@ -8,7 +8,7 @@
         <div class="card-group mb-0">
           <div class="card p-4">
             <div class="card-body">
-              <h1>Register</h1>
+              <h1 class="mb-5 text-secondary">Register</h1>
               <p class="text-muted">Register now!</p>
 
               <form @submit.prevent="handleRegisterUser">

@@ -8,7 +8,7 @@
         <div class="card-group mb-0">
           <div class="card p-4">
             <div class="card-body">
-              <h1>Login</h1>
+              <h1 class="mb-5 text-secondary">Login</h1>
               <p class="text-muted">Log In to your account</p>
 
               <form @submit.prevent="handleLoginUser">
