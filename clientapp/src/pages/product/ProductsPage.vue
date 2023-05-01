@@ -1,37 +1,14 @@
 <template>
-<div class="bg-white">
 
-<div class="container">
-  <div class="d-flex justify-content-between align-items-center py-4">
-    <div>
-      <a href="#" class="d-inline-block text-dark">
-        <span class="text-muted">Number of products  </span>
-        <strong>{{ this.numberOfProducts }}</strong>
-      </a>
-    </div>
-    <div>
-      <a href="#" class="btn btn-success btn-sm">
-        <router-link to="/create-product" class="text-white">ADD PRODUCT</router-link>
-      </a>
-      <a href="#" class="btn btn-default icon-btn md-btn-flat btn-sm ml-1">
-        <i class="ion ion-md-mail"></i>
-      </a>
-    </div>
-  </div>
-</div>
-<hr class="m-0">
-
-</div>
 
 <section id="about-section" class="pt-5 pb-5">
   <div class="container wrapabout">
 
         <div class="container-fluid">
-            <div class="container text-center">
-                <h1>Our Products.</h1>
-            </div>
+          <div class="text-center mb-2-3 mb-lg-6">
+            <h2 class="h1 mb-5 text-secondary">Our Products</h2>
+          </div>
             <div class="container">
-                <h2 class="h5 mb-5 text-center">You may also like these products</h2>
                 <div class="row">
                     <div class="col-lg-3" v-for="product in this.products" :key="product._id">
                         <div class="card text-center mb-3">
