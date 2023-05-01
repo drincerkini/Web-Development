@@ -13,7 +13,11 @@
           <h2 class="display-4 font-weight-light">Client Reviews</h2>
           <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
+        <button type="button" class="btn btn-light mt-3"> <router-link to="/create-reviews" style="text-decoration: none; color: black;"> Add Review
+                    </router-link></button>
     </div>
+
+
 
     <div class="row ">
       <!-- Reviews item-->
@@ -27,7 +31,7 @@
           <h4 class="media-heading material_media_heading">{{ info.client }}</h4>
           <p>{{ info.description }}</p>
           <p>{{ info.createdAt }}</p>
-
+            
         </div>
       </div> 
       <!-- End-->
