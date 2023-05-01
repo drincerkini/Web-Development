@@ -8,13 +8,13 @@ import Login from "../pages/LoginPage.vue";
 import ContactPage from "../pages/ContactPage.vue";
 import ServicePage from "../pages/service/ServicePage.vue";
 import CreateServicePage from "../pages/service/CreateServicePage.vue";
-import AdminDashboard from "../pages/AdminDashboard.vue"
-import CreateTeamPage from '../pages/team/CreateTeamPage.vue'
-import CreateNews from '../pages/news/CreateNews.vue'
-import CreateReviewsPage from '../pages/reviews/CreateReviewsPage.vue'
-import ContactList from '../pages/contact/ContactList.vue'
+import AdminDashboard from "../pages/AdminDashboard.vue";
+import CreateTeamPage from "../pages/team/CreateTeamPage.vue";
+import CreateNews from "../pages/news/CreateNews.vue";
+import CreateReviewsPage from "../pages/reviews/CreateReviewsPage.vue";
+import ContactList from "../pages/contact/ContactList.vue";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
 
 const routes = [
@@ -22,17 +22,26 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
+    meta: {
+      isUser: true,
+    },
   },
- 
+
   {
     path: "/about",
     name: "about",
     component: About,
+    meta: {
+      isUser: true,
+    },
   },
   {
     path: "/products",
     name: "products",
     component: Products,
+    meta: {
+      isUser: true,
+    },
   },
   {
     path: "/create-product",
@@ -64,11 +73,17 @@ const routes = [
     path: "/contact",
     name: "contact",
     component: ContactPage,
+    meta: {
+      isUser: true,
+    },
   },
   {
     path: "/services",
     name: "services",
     component: ServicePage,
+    meta: {
+      isUser: true,
+    },
   },
   {
     path: "/create-service",
@@ -90,11 +105,17 @@ const routes = [
     path: "/create-news",
     name: "create-news",
     component: CreateNews,
+    meta: {
+      isAdmin: true,
+    },
   },
   {
     path: "/create-reviews",
     name: "create-reviews",
     component: CreateReviewsPage,
+    meta: {
+      isAdmin: true,
+    },
   },
   {
     path: "/contact-list",
@@ -115,39 +136,64 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
-  });
+  history: createWebHistory(),
+  routes,
+});
 
-  router.beforeEach((to, from, next) => {
-    onAuthStateChanged(getAuth(), async (user) => {
-      const shouldBeLoggedIn = (record) =>
-        record.meta.isAuthenticated || record.meta.isAdmin;
-  
-      if (to.matched.some((record) => shouldBeLoggedIn(record))) {
-        if (!user) {
-          next("/login");
-        } else {
-          const tokenResult = await getAuth().currentUser.getIdTokenResult();
-          const isAdmin = tokenResult.claims.admin;
-          if (isAdmin && to.matched.some((record) => !record.meta.isAdmin)) {
-            next("/admin");
-          } else if (to.matched.some((record) => record.meta.isAdmin)) {
-            if (!tokenResult.claims.admin) {
-                alert('You are not authorized to access this page.');
-              next("/");
-            } else {
-              next();
-            }
+//admin in dashboard
+
+router.beforeEach((to, from, next) => {
+  onAuthStateChanged(getAuth(), async (user) => {
+    const shouldBeLoggedIn = (record) =>
+      record.meta.isAuthenticated || record.meta.isAdmin;
+
+    if (to.matched.some((record) => shouldBeLoggedIn(record))) {
+      if (!user) {
+        next("/login");
+      } else {
+        const tokenResult = await getAuth().currentUser.getIdTokenResult();
+        const isAdmin = tokenResult.claims.admin;
+        if (isAdmin && to.matched.some((record) => !record.meta.isAdmin)) {
+          next("/admin");
+        } else if (to.matched.some((record) => record.meta.isAdmin)) {
+          if (!tokenResult.claims.admin) {
+            alert("You are not authorized to access this page.");
+            next("/");
           } else {
             next();
           }
+        } else {
+          next();
         }
-      } else {
-        next();
       }
-    });
+    } else {
+      next();
+    }
   });
-  
+});
 
+
+//User in different paths
+router.beforeEach((to, from, next) => {
+  onAuthStateChanged(getAuth(), async (user) => {
+    const shouldBeLoggedIn = (record) =>
+      record.meta.isAuthenticated || record.meta.isUser;
+
+    if (to.matched.some((record) => shouldBeLoggedIn(record))) {
+      if (!user) {
+        next("/login");
+      } else {
+        const token = await getAuth().currentUser.getIdTokenResult();
+        const isUser = token.claims.user;
+        if (isUser && to.matched.some((record) => !record.meta.isUser)) {
+          next();
+        }  else {
+          next();
+        }
+      }
+    } else {
+      next();
+    }
+  });
+});
 export default router;
