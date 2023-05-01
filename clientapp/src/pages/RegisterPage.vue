@@ -46,7 +46,7 @@
               <div>
                 <h2>Login </h2>
                 <p>Click to Log-in and explore through our pages!</p>
-                <button type="button" class="btn btn-light mt-3"> <router-link to="/login"> Login
+                <button type="button" class="btn btn-light mt-3"> <router-link to="/login" style="text-decoration: none; color: black;"> Login
                     Now</router-link></button>
               </div>
             </div>

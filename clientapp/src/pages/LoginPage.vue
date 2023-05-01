@@ -36,7 +36,7 @@
               <div>
                 <h2>Register </h2>
                 <p>Register now and have the opportunity to feel the greatness!</p>
-                <button type="button" class="btn btn-light mt-3"> <router-link to="/register"> Register
+                <button type="button" class="btn btn-light mt-3 "> <router-link to="/register" style="text-decoration: none; color: black;"> Register
                     Now</router-link></button>
               </div>
             </div>

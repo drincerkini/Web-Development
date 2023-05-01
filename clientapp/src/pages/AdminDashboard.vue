@@ -148,8 +148,8 @@
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="panel panel-info panel-colorful">
           <div class="panel-body text-center">
-            <router-link to="/create-reviews" class="text-white">
-              <p class="text-uppercase mar-btm text-sm">ADD REVIEWS</p>
+            <router-link to="/about" class="text-white">
+              <p class="text-uppercase mar-btm text-sm"> REVIEWS</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="90"
@@ -166,18 +166,18 @@
                 />
               </svg>
               <hr />
-              <p class="h2 text-thin">{{ this.numberOfNews }}</p>
+              <p class="h2 text-thin">{{ this.numberOfRev }}</p>
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
-                  {{ this.numberOfNews }}</span
+                  {{ this.numberOfRe }}</span
                 >
                 News</small
               >
             </router-link>
           </div>
         </div>
-      </div>ß
+      </div>
     </div>
   </div>
 

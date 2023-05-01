@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li v-for="route in routes" v-bind:key="route.name">
-              <router-link v-bind:to="route.path" class="nav-item nav-link">{{ route.name }}</router-link>
+              <router-link v-bind:to="route.path" class="nav-item nav-link text-white">{{ route.name }}</router-link>
             </li>
           </ul>
           <div class="d-flex" role="search">

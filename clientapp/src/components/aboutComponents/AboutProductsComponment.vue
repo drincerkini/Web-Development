@@ -67,7 +67,7 @@ body{margin-top:20px;}
     position: relative;
 }
 
-.blockabout {-
+.blockabout {
     padding: 20px;
     background: white;
 }
