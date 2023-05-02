@@ -8,6 +8,11 @@ const teamModule = {
     state: {
         teams: [],
     },
+    getters: {
+        numberOfMembers(state) {
+          return state.teams.length;
+        },
+      },
 
 
     mutations: {

@@ -20,7 +20,7 @@
         </div>
         <div class="caption material_caption">
           <h3>{{ info.title }}</h3>
-          <p>{{}}</p>
+          <p>{{info.description}}</p>
           <p><a href="#" class="btn btn-default material_btn" role="button">{{ info.createdAt }}</a></p>
         </div>
       </div>
@@ -28,6 +28,7 @@
       <br />
       <br />
       <br />
+      <button class="btn btn-danger" v-on:click="handleDelete(info._id)">Delete</button>
         
     </div>
   </div>
@@ -50,10 +51,10 @@
       this.$store.dispatch('newsModule/getNews');
     },
     methods: {
-      async handleDelete(teamId){
+      async handleDelete(infoId){
         if (window.confirm("Do you really want to delete?")) {
           try {
-            this.$store.dispatch('deleteNews', teamId);
+            this.$store.dispatch('newsModule/deleteNews', infoId);
           }catch(err) {
             console.log("erro", err.message);
           }

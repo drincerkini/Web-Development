@@ -7,7 +7,7 @@
       <br />
       <br />
         <div class="text-center mb-2-3 mb-lg-6">
-            <h2 class="h1 mb-5 text-secondary">Our Products</h2>
+            <h2 class="h1 mb-5 text-secondary">Latest News  </h2>
         </div>
       <br />
       <br />
@@ -27,8 +27,7 @@
               </div>
             </div>
             <br />
-            <br />
-            <br />
+      <button class="btn btn-danger" v-on:click="handleDelete(news._id)">Delete</button>
           </div>
 
 

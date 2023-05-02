@@ -23,6 +23,7 @@
                                 <span class="d-block">OFF</span>
                             </div>
                         </div>
+                        <button class="btn btn-danger" v-on:click="handleDelete(product._id)">Delete</button>
                     </div>   
                     
                 </div>
@@ -51,7 +52,7 @@ export default {
       async handleDelete(productId){
         if (window.confirm("Do you really want to delete?")) {
           try {
-            this.$store.dispatch('deleteProduct', productId);
+            this.$store.dispatch('productModule/deleteProduct', productId);
           }catch(err) {
             console.log("erro", err.message);
           }

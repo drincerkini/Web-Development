@@ -7,7 +7,11 @@ const reviewsModule = {
 
     state: {
         reviews: [],
-    },
+    }, getters: {
+        numberOfRev(state) {
+          return state.reviews.length;
+        },
+      },
 
 
     mutations: {

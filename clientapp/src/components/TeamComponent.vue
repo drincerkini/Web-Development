@@ -22,6 +22,7 @@
           <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
+      <button class="btn btn-danger" v-on:click="handleDelete(team._id)">Delete</button>
     </div>
     <!-- End-->
   </div>
@@ -46,7 +47,7 @@
       async handleDelete(teamId){
         if (window.confirm("Do you really want to delete?")) {
           try {
-            this.$store.dispatch('deleteTeam', teamId);
+            this.$store.dispatch('teamModule/deleteTeam', teamId);
           }catch(err) {
             console.log("erro", err.message);
           }

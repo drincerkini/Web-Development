@@ -170,7 +170,7 @@
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
-                  {{ this.numberOfRe }}</span
+                  {{ this.numberOfRev }}</span
                 >
                 News</small
               >
@@ -182,7 +182,7 @@
         <div class="panel panel-dark panel-colorful">
           <div class="panel-body text-center">
             <router-link to="/create-team" class="text-white">
-              <p class="text-uppercase mar-btm text-sm">TEAM</p>
+              <p class="text-uppercase mar-btm text-sm">ADD TEAM MEMBER</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="90"
@@ -201,11 +201,11 @@
               <hr />
             </router-link>      
                   <router-link to="/about" class="text-white">
-              <p class="h2 text-thin">{{ this.numberOfServices }}</p>
+              <p class="h2 text-thin">{{ this.numberOfMembers }}</p>
               <small
                 ><span class="text-semibold"
                   ><i class="fa fa-unlock-alt fa-fw"></i>
-                  {{ this.numberOfServices }}</span
+                  {{ this.numberOfMembers }}</span
                 >
                 Team</small
               >

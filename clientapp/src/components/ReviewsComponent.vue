@@ -21,7 +21,7 @@
 
     <div class="row ">
       <!-- Reviews item-->
-      <div class="media material_media"  v-for="info in this.reviews" :key="info._id">
+      <div class="col-xl-3 col-sm-6 mb-5"  v-for="info in this.reviews" :key="info._id">
         <div class="media-left">
           <a href="#">
             <img class="media-object material_media_object" data-src="holder.js/64x64" alt="64x64" src="../../public/img/user.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
