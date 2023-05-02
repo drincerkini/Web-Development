@@ -49,6 +49,8 @@
 <script>
 
 export default {
+  watch: {
+  },
     data() {
         return {
             title: '',
