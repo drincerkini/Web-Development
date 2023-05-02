@@ -21,7 +21,8 @@
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-pinterest"></i></a>
                         </div>
-                        <a href="#" class="btn rey-btn mt-3">See Our Products</a>
+                       
+                        <router-link to="/products" class="btn rey-btn mt-3" >See Our Products</router-link>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,5 @@
 <template>
-  <br />
-  <br />
-  <br />
+ <hr />
 
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -9,9 +7,9 @@
 <section id="about-section" class="pt-5 pb-5">
   <div class="container wrapabout">
     <div class="row mb-4">
-        <div class="col-lg-5">
+        <div class="text-center">
           <h2 class="display-4 font-weight-light">Client Reviews</h2>
-          <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p class="font-italic text-muted">We want to know your thoughts. Feel free to text them!</p>
         </div>
         <button type="button" class="btn btn-light mt-3"> <router-link to="/create-reviews" style="text-decoration: none; color: black;"> Add Review
                     </router-link></button>

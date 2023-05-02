@@ -221,6 +221,48 @@
   <br />
 </template>
 
+
+<script>
+import { mapState, mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapState("serviceModule", ["services"]),
+    ...mapGetters("serviceModule", ["numberOfServices"]),
+    ...mapState("contactModule", ["contacts"]),
+    ...mapGetters("contactModule", ["numberOfContacts"]),
+    ...mapState("productModule", ["products"]),
+    ...mapGetters("productModule", ["numberOfProducts"]),
+    ...mapState("newsModule", ["news"]),
+    ...mapGetters("newsModule", ["numberOfNews"]),
+  },
+  created() {
+    this.$store.dispatch("serviceModule/getServices");
+    this.$store.dispatch("contactModule/getContact");
+    this.$store.dispatch("productModule/getProducts");
+    this.$store.dispatch("newsModule/getNews");
+  },
+  methods: {
+    async handleDelete(serviceId) {
+      if (window.confirm("Do you really want to delete?")) {
+        try {
+          this.$store.dispatch("deleteService", serviceId);
+        } catch (err) {
+          console.log("erro", err.message);
+        }
+      }
+    },
+  },
+};
+</script>
+
+
+
+
+
+
+
+
 <style scoped>
 body {
   background: #eee;
@@ -293,36 +335,3 @@ small {
 }
 </style>
 
-<script>
-import { mapState, mapGetters } from "vuex";
-
-export default {
-  computed: {
-    ...mapState("serviceModule", ["services"]),
-    ...mapGetters("serviceModule", ["numberOfServices"]),
-    ...mapState("contactModule", ["contacts"]),
-    ...mapGetters("contactModule", ["numberOfContacts"]),
-    ...mapState("productModule", ["products"]),
-    ...mapGetters("productModule", ["numberOfProducts"]),
-    ...mapState("newsModule", ["news"]),
-    ...mapGetters("newsModule", ["numberOfNews"]),
-  },
-  created() {
-    this.$store.dispatch("serviceModule/getServices");
-    this.$store.dispatch("contactModule/getContact");
-    this.$store.dispatch("productModule/getProducts");
-    this.$store.dispatch("newsModule/getNews");
-  },
-  methods: {
-    async handleDelete(serviceId) {
-      if (window.confirm("Do you really want to delete?")) {
-        try {
-          this.$store.dispatch("deleteService", serviceId);
-        } catch (err) {
-          console.log("erro", err.message);
-        }
-      }
-    },
-  },
-};
-</script>
